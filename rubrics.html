@@ -1,231 +1,176 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рубрики | Подкаст "Междучасие"</title>
-    <meta name="description" content="Рубриките на училищния подкаст Междучасие - новини, музика, интервюта, наука, спорт и още.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рубрики | Подкаст "Междучасие"</title>
+<meta name="description" content="Рубриките на училищния подкаст Междучасие.">
+<meta name="theme-color" content="#f76f53">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="orb"></div>
-        <div class="orb"></div>
-        <div class="orb"></div>
+<script>(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)})();</script>
+
+<div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <span style="font-weight:700;font-size:1.1rem;">Меню</span>
+    <button class="mobile-menu-close" onclick="toggleMobileMenu()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--zen-dark)">&times;</button>
+  </div>
+  <nav>
+    <a href="index.html">Начало</a>
+    <a href="episodes.html">Епизоди</a>
+    <a href="rubrics.html" class="active">Рубрики</a>
+    <a href="schedule.html">Програма</a>
+    <a href="team.html">Екип</a>
+    <a href="guests.html">Гости</a>
+    <a href="contact.html">Контакти</a>
+  </nav>
+</div>
+
+<div class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <div class="navbar-logo"><i class="fas fa-radio"></i></div>
+        <span>МЕЖДУЧАСИЕ</span>
+      </a>
+      <div class="navbar-center">
+        <a href="index.html">Начало</a>
+        <a href="episodes.html">Епизоди</a>
+        <a href="rubrics.html" class="active">Рубрики</a>
+        <a href="schedule.html">Програма</a>
+        <a href="team.html">Екип</a>
+        <a href="guests.html">Гости</a>
+        <a href="contact.html">Контакти</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="Превключване на тема">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <a href="https://www.youtube.com/@schoolpodcast32" target="_blank" class="btn btn-primary navbar-cta">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <button class="mobile-hamburger" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <a href="index.html" class="logo">
-                <div class="logo-icon"><i class="fas fa-radio"></i></div>
-                <div class="logo-text">
-                    <span>МЕЖДУЧАСИЕ</span>
-                    <span>Подкаст на 32. СУИЧЕ</span>
-                </div>
-            </a>
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <nav>
-            <a href="index.html">Начало</a>
-            <a href="episodes.html">Епизоди</a>
-            <a href="rubrics.html" class="active">Рубрики</a>
-            <a href="schedule.html">Програма</a>
-            <a href="team.html">Екип</a>
-            <a href="guests.html">Гости</a>
-            <a href="contact.html">Контакти</a>
-        </nav>
+<div class="container">
+  <div class="page-header">
+    <div class="breadcrumbs">
+      <a href="index.html">Начало</a><span class="sep">/</span><span class="current">Рубрики</span>
     </div>
+    <h1>Нашите рубрики</h1>
+    <p>Разнообразие от теми за всеки вкус и интерес</p>
+  </div>
+</div>
 
-    <header id="header">
-        <div class="header-inner">
-            <a href="index.html" class="logo">
-                <div class="logo-icon"><i class="fas fa-radio"></i></div>
-                <div class="logo-text">
-                    <span>МЕЖДУЧАСИЕ</span>
-                    <span>Подкаст на 32. СУИЧЕ</span>
-                </div>
-            </a>
-
-            <nav class="desktop-nav">
-                <a href="index.html">Начало</a>
-                <a href="episodes.html">Епизоди</a>
-                <a href="rubrics.html" class="active">Рубрики</a>
-                <a href="schedule.html">Програма</a>
-                <a href="team.html">Екип</a>
-                <a href="guests.html">Гости</a>
-                <a href="contact.html">Контакти</a>
-            </nav>
-
-            <div class="header-actions">
-                <a href="https://www.youtube.com/@schoolpodcast32" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-youtube"></i>
-                    YouTube
-                </a>
-                <button class="mobile-toggle" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <div class="page-header">
-        <div class="page-header-content">
-            <div class="breadcrumbs">
-                <a href="index.html">Начало</a>
-                <span class="sep">/</span>
-                <span class="current">Рубрики</span>
-            </div>
-            <h1>Нашите рубрики</h1>
-            <p>Разнообразие от теми за всеки вкус и интерес</p>
-        </div>
+<div class="container">
+  <section style="padding-top:0;">
+    <div class="rubrics-grid reveal">
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-newspaper"></i></div>
+        <h4>Училищни новини</h4>
+        <p>Всичко важно от живота на 32. СУИЧЕ — събития, постижения и инициативи.</p>
+        <div class="rubric-host">Водещ: <strong>Неда Ташева</strong></div>
+      </div>
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-music"></i></div>
+        <h4>Музикална рубрика</h4>
+        <p>Най-добрата музика, подбрана от нашия екип. От класика до съвременни хитове.</p>
+        <div class="rubric-host">Водещ: <strong>Кирил Леваков</strong></div>
+      </div>
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-comments"></i></div>
+        <h4>Интервюта</h4>
+        <p>Разговори с учители, ученици и личности от света на изкуството и науката.</p>
+        <div class="rubric-host">Водещ: <strong>Неда Ташева</strong></div>
+      </div>
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-lightbulb"></i></div>
+        <h4>Любопитни факти</h4>
+        <p>Невероятни факти от науката, историята и космоса. Учим се забавлявайки!</p>
+        <div class="rubric-host">Водещ: <strong>Кирил Леваков</strong></div>
+      </div>
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-futbol"></i></div>
+        <h4>Спортен кът</h4>
+        <p>Спорт в училище — състезания, шампиони и здравословен начин на живот.</p>
+        <div class="rubric-host">Водещ: <strong>Петър Садкаров</strong></div>
+      </div>
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-palette"></i></div>
+        <h4>Творческа работилница</h4>
+        <p>Изкуство, литература, театър и всичко творческо в нашето училище.</p>
+        <div class="rubric-host">Водещ: <strong>Неда Ташева</strong></div>
+      </div>
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-laptop-code"></i></div>
+        <h4>Tech Talk</h4>
+        <p>Технологии, програмиране, AI и дигитални иновации. Бъдещето започва тук!</p>
+        <div class="rubric-host">Водещ: <strong>Божидар Генчев</strong></div>
+      </div>
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-face-smile"></i></div>
+        <h4>Забавна рубрика</h4>
+        <p>Вицове, игри, предизвикателства — всичко, което ще ви разсмее!</p>
+        <div class="rubric-host">Водещ: <strong>Целият екип</strong></div>
+      </div>
+      <div class="rubric-card">
+        <div class="rubric-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h4>Полезни съвети</h4>
+        <p>Съвети за учене, мотивация и управление на стреса. Растем заедно!</p>
+        <div class="rubric-host">Водещ: <strong>Кирил Леваков</strong></div>
+      </div>
     </div>
+  </section>
+</div>
 
-    <section>
-        <div class="rubrics-grid reveal">
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-newspaper"></i>
-                </div>
-                <h4>Училищни новини</h4>
-                <p>Всичко важно от живота на 32. СУИЧЕ — събития, постижения, предстоящи инициативи и още.</p>
-                <div class="rubric-host">Водещ: <strong>Неда Ташева</strong></div>
-            </div>
-
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-music"></i>
-                </div>
-                <h4>Музикална рубрика</h4>
-                <p>Най-добрата музика, подбрана от нашия екип. От класика до съвременни хитове и българска музика.</p>
-                <div class="rubric-host">Водещ: <strong>Кирил Леваков</strong></div>
-            </div>
-
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <h4>Интервюта</h4>
-                <p>Разговори с учители, ученици, възпитаници и интересни личности от света на изкуството и науката.</p>
-                <div class="rubric-host">Водещ: <strong>Неда Ташева</strong></div>
-            </div>
-
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h4>Любопитни факти</h4>
-                <p>Невероятни факти от света на науката, историята, природата и космоса. Учим се, докато се забавляваме!</p>
-                <div class="rubric-host">Водещ: <strong>Кирил Леваков</strong></div>
-            </div>
-
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-futbol"></i>
-                </div>
-                <h4>Спортен кът</h4>
-                <p>Всичко за спорта в училище — състезания, шампиони, съвети за здравословен начин на живот.</p>
-                <div class="rubric-host">Водещ: <strong>Петър Садкаров</strong></div>
-            </div>
-
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h4>Творческа работилница</h4>
-                <p>Изкуство, литература, театър и всичко творческо, което се случва в нашето училище.</p>
-                <div class="rubric-host">Водещ: <strong>Неда Ташева</strong></div>
-            </div>
-
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <h4>Tech Talk</h4>
-                <p>Технологии, програмиране, изкуствен интелект и дигитални иновации. Бъдещето започва тук!</p>
-                <div class="rubric-host">Водещ: <strong>Божидар Генчев</strong></div>
-            </div>
-
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-face-smile"></i>
-                </div>
-                <h4>Забавна рубрика</h4>
-                <p>Вицове, игри, предизвикателства и всичко, което ще ви разсмее и разведри между часовете.</p>
-                <div class="rubric-host">Водещ: <strong>Целият екип</strong></div>
-            </div>
-
-            <div class="rubric-card">
-                <div class="rubric-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h4>Полезни съвети</h4>
-                <p>Съвети за учене, мотивация, време и управление на стреса. Помагаме си взаимно да растем!</p>
-                <div class="rubric-host">Водещ: <strong>Кирил Леваков</strong></div>
-            </div>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-title-section">
+        <div class="footer-brand-name">Междучасие</div>
+        <p>Училищно радио "Междучасие" — гласът на 32. СУИЧЕ.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4>Подкаст</h4>
+          <a href="index.html">Начало</a><a href="episodes.html">Епизоди</a><a href="rubrics.html">Рубрики</a><a href="schedule.html">Програма</a>
         </div>
-    </section>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="logo-icon"><i class="fas fa-radio"></i></div>
-                <p>Училищно радио "Междучасие" — гласът на 32. СУИЧЕ "Св. Климент Охридски".</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/school32.bg/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@schoolpodcast32" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Подкаст</h4>
-                <a href="index.html">Начало</a>
-                <a href="episodes.html">Епизоди</a>
-                <a href="rubrics.html">Рубрики</a>
-                <a href="schedule.html">Програма</a>
-            </div>
-            <div class="footer-col">
-                <h4>За нас</h4>
-                <a href="team.html">Екип</a>
-                <a href="guests.html">Гости</a>
-                <a href="contact.html">Контакти</a>
-                <a href="https://www.youtube.com/@schoolpodcast32" target="_blank">YouTube</a>
-            </div>
-            <div class="footer-col">
-                <h4>Училище</h4>
-                <a href="https://school32.com" target="_blank">32. СУИЧЕ</a>
-                <a href="https://school32.com/%d0%bd%d0%be%d0%b2%d0%b8%d0%bd%d0%b8/" target="_blank">Новини</a>
-                <a href="https://school32.com/%d0%bf%d1%80%d0%b8%d0%b5%d0%bc/" target="_blank">Прием</a>
-            </div>
+        <div class="footer-col">
+          <h4>За нас</h4>
+          <a href="team.html">Екип</a><a href="guests.html">Гости</a><a href="contact.html">Контакти</a><a href="https://www.youtube.com/@schoolpodcast32" target="_blank">YouTube</a>
         </div>
-        <div class="footer-bottom">
-            <p>Copyright 2024 - 2026 &copy; Всички права запазени - Подкаст "Междучасие"</p>
-            <p>32. СУИЧЕ "Св. Климент Охридски"</p>
+        <div class="footer-col">
+          <h4>Училище</h4>
+          <a href="https://school32.com" target="_blank">32. СУИЧЕ</a><a href="https://school32.com/%d0%bd%d0%be%d0%b2%d0%b8%d0%bd%d0%b8/" target="_blank">Новини</a><a href="https://school32.com/%d0%bf%d1%80%d0%b8%d0%b5%d0%bc/" target="_blank">Прием</a>
+          <div class="social-links" style="margin-top:0.75rem;">
+            <a href="https://www.facebook.com/school32.bg/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@schoolpodcast32" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright 2024 - 2026 &copy; Всички права запазени</p>
+        <p>32. СУИЧЕ "Св. Климент Охридски"</p>
+      </div>
+    </div>
+  </div>
+</footer>
 
-    <script>
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        });
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('open');
-            document.getElementById('mobileOverlay').classList.toggle('open');
-            document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
-        }
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        revealElements.forEach(el => revealObserver.observe(el));
-    </script>
+<script>
+function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);var i=document.getElementById('themeIcon');if(i)i.className=n==='dark'?'fas fa-sun':'fas fa-moon';}
+(function(){var i=document.getElementById('themeIcon');if(i)i.className=document.documentElement.getAttribute('data-theme')==='dark'?'fas fa-sun':'fas fa-moon';})();
+var r=document.querySelectorAll('.reveal');var o=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('active');});},{threshold:0.1});r.forEach(function(el){o.observe(el);});
+</script>
 </body>
 </html>
