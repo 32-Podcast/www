@@ -59,7 +59,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Kometa', sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   background: var(--zen-paper);
@@ -924,7 +924,7 @@ section { padding: 4rem 0; }
   padding: 0.7rem 0.85rem;
   border: 2px solid var(--zen-muted);
   border-radius: var(--radius-sm);
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Kometa', sans-serif;
   font-size: 0.9rem;
   color: var(--zen-dark);
   transition: all .2s;
