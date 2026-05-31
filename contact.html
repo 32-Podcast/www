@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакти | Подкаст "Междучасие"</title>
     <meta name="description" content="Свържи се с екипа на училищния подкаст Междучасие. Предложи тема, стани гост или просто кажи здравей.">
-    <meta name="theme-color" content="#f76f53">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>(function(){var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+    <div class="ambient-bg">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
 
     <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
     <div class="mobile-menu" id="mobileMenu">
@@ -25,7 +28,9 @@
                     <span>Подкаст на 32. СУИЧЕ</span>
                 </div>
             </a>
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
         <nav>
             <a href="index.html">Начало</a>
@@ -47,6 +52,7 @@
                     <span>Подкаст на 32. СУИЧЕ</span>
                 </div>
             </a>
+
             <nav class="desktop-nav">
                 <a href="index.html">Начало</a>
                 <a href="episodes.html">Епизоди</a>
@@ -56,14 +62,15 @@
                 <a href="guests.html">Гости</a>
                 <a href="contact.html" class="active">Контакти</a>
             </nav>
+
             <div class="header-actions">
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Превключване на тема">
-                    <i class="fas fa-moon" id="themeIcon"></i>
-                </button>
                 <a href="https://www.youtube.com/@schoolpodcast32" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-youtube"></i> YouTube
+                    <i class="fab fa-youtube"></i>
+                    YouTube
                 </a>
-                <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+                <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -85,41 +92,59 @@
             <div class="contact-info">
                 <span class="section-tag">Контакти</span>
                 <h3>Нека поговорим</h3>
-                <p>Ние обичаме да чуваме от вас! Независимо дали имаш идея за рубрика, искаш да станеш гост, или просто искаш да споделиш мнението си — винаги сме на линия.</p>
+                <p>
+                    Ние обичаме да чуваме от вас! Независимо дали имаш идея за рубрика, 
+                    искаш да станеш гост, или просто искаш да споделиш мнението си — 
+                    винаги сме на линия.
+                </p>
+
                 <div class="contact-item">
-                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <div class="details">
                         <h4>Имейл</h4>
                         <a href="mailto:podcast@school32.com">podcast@school32.com</a>
                     </div>
                 </div>
+
                 <div class="contact-item">
-                    <div class="icon"><i class="fab fa-youtube"></i></div>
+                    <div class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
                     <div class="details">
                         <h4>YouTube канал</h4>
                         <a href="https://www.youtube.com/@schoolpodcast32" target="_blank">@schoolpodcast32</a>
                     </div>
                 </div>
+
                 <div class="contact-item">
-                    <div class="icon"><i class="fas fa-school"></i></div>
+                    <div class="icon">
+                        <i class="fas fa-school"></i>
+                    </div>
                     <div class="details">
                         <h4>Училище</h4>
                         <p>32. СУИЧЕ "Св. Климент Охридски"</p>
                     </div>
                 </div>
+
                 <div class="contact-item">
-                    <div class="icon"><i class="fas fa-clock"></i></div>
+                    <div class="icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
                     <div class="details">
                         <h4>Работно време</h4>
                         <p>Понеделник — Петък, 12:00 — 13:00 ч.</p>
                     </div>
                 </div>
-                <div class="social-links" style="margin-top:1.5rem;">
+
+                <div class="social-links" style="margin-top: 2rem;">
                     <a href="https://www.facebook.com/school32.bg/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.youtube.com/@schoolpodcast32" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
+
             <div class="contact-form">
                 <h3>Изпрати съобщение</h3>
                 <form onsubmit="event.preventDefault(); alert('Благодарим ти! Съобщението е изпратено успешно.');">
@@ -127,10 +152,12 @@
                         <label for="name">Име</label>
                         <input type="text" id="name" name="name" placeholder="Твоето име" required>
                     </div>
+
                     <div class="form-group">
                         <label for="email">Имейл</label>
                         <input type="email" id="email" name="email" placeholder="tvoq@email.com" required>
                     </div>
+
                     <div class="form-group">
                         <label for="subject">Тема</label>
                         <select id="subject" name="subject" required>
@@ -142,12 +169,15 @@
                             <option value="other">Друго</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="message">Съобщение</label>
                         <textarea id="message" name="message" placeholder="Разкажи ни повече..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:0.75rem 1.5rem;">
-                        <i class="fas fa-paper-plane"></i> Изпрати съобщение
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem;">
+                        <i class="fas fa-paper-plane"></i>
+                        Изпрати съобщение
                     </button>
                 </form>
             </div>
@@ -193,11 +223,21 @@
     </footer>
 
     <script>
-        var header=document.getElementById('header');window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>50);});
-        function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
-        function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);var i=document.getElementById('themeIcon');if(i)i.className=n==='dark'?'fas fa-sun':'fas fa-moon';}
-        (function(){var i=document.getElementById('themeIcon');if(i)i.className=document.documentElement.getAttribute('data-theme')==='dark'?'fas fa-sun':'fas fa-moon';})();
-        var r=document.querySelectorAll('.reveal');var o=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('active');});},{threshold:0.1});r.forEach(function(el){o.observe(el);});
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+            document.getElementById('mobileOverlay').classList.toggle('open');
+            document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+        }
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>

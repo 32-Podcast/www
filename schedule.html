@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Програма | Подкаст "Междучасие"</title>
     <meta name="description" content="Седмична програма на училищния подкаст Междучасие. Виж кога излизат любимите ти рубрики.">
-    <meta name="theme-color" content="#f76f53">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>(function(){var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+    <div class="ambient-bg">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
 
     <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
     <div class="mobile-menu" id="mobileMenu">
@@ -25,7 +28,9 @@
                     <span>Подкаст на 32. СУИЧЕ</span>
                 </div>
             </a>
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
         <nav>
             <a href="index.html">Начало</a>
@@ -47,6 +52,7 @@
                     <span>Подкаст на 32. СУИЧЕ</span>
                 </div>
             </a>
+
             <nav class="desktop-nav">
                 <a href="index.html">Начало</a>
                 <a href="episodes.html">Епизоди</a>
@@ -56,14 +62,15 @@
                 <a href="guests.html">Гости</a>
                 <a href="contact.html">Контакти</a>
             </nav>
+
             <div class="header-actions">
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Превключване на тема">
-                    <i class="fas fa-moon" id="themeIcon"></i>
-                </button>
                 <a href="https://www.youtube.com/@schoolpodcast32" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-youtube"></i> YouTube
+                    <i class="fab fa-youtube"></i>
+                    YouTube
                 </a>
-                <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+                <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -86,51 +93,101 @@
             <h2>26 май — 1 юни 2026</h2>
             <p>Предаванията излизат в 12:00 ч. на училищния YouTube канал</p>
         </div>
+
         <div class="schedule-grid reveal">
             <div class="schedule-day">
                 <div class="day-name">Понеделник</div>
                 <div class="day-date">26 май</div>
-                <div class="schedule-slot"><span class="time">12:00</span><span class="topic">Училищни новини</span></div>
-                <div class="schedule-slot"><span class="time">12:30</span><span class="topic">Музикална рубрика</span></div>
+                <div class="schedule-slot">
+                    <span class="time">12:00</span>
+                    <span class="topic">Училищни новини</span>
+                </div>
+                <div class="schedule-slot">
+                    <span class="time">12:30</span>
+                    <span class="topic">Музикална рубрика</span>
+                </div>
             </div>
+
             <div class="schedule-day today">
                 <div class="day-name">Вторник</div>
                 <div class="day-date">27 май</div>
-                <div class="schedule-slot"><span class="time">12:00</span><span class="topic">Интервюта</span></div>
-                <div class="schedule-slot"><span class="time">12:30</span><span class="topic">Любопитни факти</span></div>
+                <div class="schedule-slot">
+                    <span class="time">12:00</span>
+                    <span class="topic">Интервюта</span>
+                </div>
+                <div class="schedule-slot">
+                    <span class="time">12:30</span>
+                    <span class="topic">Любопитни факти</span>
+                </div>
             </div>
+
             <div class="schedule-day">
                 <div class="day-name">Сряда</div>
                 <div class="day-date">28 май</div>
-                <div class="schedule-slot"><span class="time">12:00</span><span class="topic">Спортен кът</span></div>
-                <div class="schedule-slot"><span class="time">12:30</span><span class="topic">Tech Talk</span></div>
+                <div class="schedule-slot">
+                    <span class="time">12:00</span>
+                    <span class="topic">Спортен кът</span>
+                </div>
+                <div class="schedule-slot">
+                    <span class="time">12:30</span>
+                    <span class="topic">Tech Talk</span>
+                </div>
             </div>
+
             <div class="schedule-day">
                 <div class="day-name">Четвъртък</div>
                 <div class="day-date">29 май</div>
-                <div class="schedule-slot"><span class="time">12:00</span><span class="topic">Творческа работилница</span></div>
-                <div class="schedule-slot"><span class="time">12:30</span><span class="topic">Забавна рубрика</span></div>
+                <div class="schedule-slot">
+                    <span class="time">12:00</span>
+                    <span class="topic">Творческа работилница</span>
+                </div>
+                <div class="schedule-slot">
+                    <span class="time">12:30</span>
+                    <span class="topic">Забавна рубрика</span>
+                </div>
             </div>
+
             <div class="schedule-day">
                 <div class="day-name">Петък</div>
                 <div class="day-date">30 май</div>
-                <div class="schedule-slot"><span class="time">12:00</span><span class="topic">Полезни съвети</span></div>
-                <div class="schedule-slot"><span class="time">12:30</span><span class="topic">Музикална рубрика</span></div>
+                <div class="schedule-slot">
+                    <span class="time">12:00</span>
+                    <span class="topic">Полезни съвети</span>
+                </div>
+                <div class="schedule-slot">
+                    <span class="time">12:30</span>
+                    <span class="topic">Музикална рубрика</span>
+                </div>
             </div>
+
             <div class="schedule-day">
                 <div class="day-name">Събота</div>
                 <div class="day-date">31 май</div>
-                <div class="schedule-slot" style="background:rgba(0,0,0,0.02);"><span class="time">—</span><span class="topic">Почивен ден</span></div>
+                <div class="schedule-slot" style="background: rgba(0,0,0,0.03);">
+                    <span class="time">—</span>
+                    <span class="topic">Почивен ден</span>
+                </div>
             </div>
+
             <div class="schedule-day">
                 <div class="day-name">Неделя</div>
                 <div class="day-date">1 юни</div>
-                <div class="schedule-slot" style="background:rgba(0,0,0,0.02);"><span class="time">—</span><span class="topic">Почивен ден</span></div>
+                <div class="schedule-slot" style="background: rgba(0,0,0,0.03);">
+                    <span class="time">—</span>
+                    <span class="topic">Почивен ден</span>
+                </div>
             </div>
         </div>
-        <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-            <p style="color:var(--text);opacity:0.6;margin-bottom:1.25rem;"><i class="fas fa-info-circle" style="color:var(--coral);"></i> Всички предавания се записват и качват на нашия YouTube канал за гледане по всяко време.</p>
-            <a href="https://www.youtube.com/@schoolpodcast32" target="_blank" class="btn btn-primary"><i class="fab fa-youtube"></i> Абонирай се за канала</a>
+
+        <div style="text-align: center; margin-top: 3rem;" class="reveal">
+            <p style="color: var(--text-light); margin-bottom: 1.5rem;">
+                <i class="fas fa-info-circle" style="color: var(--primary);"></i>
+                Всички предавания се записват и качват на нашия YouTube канал за гледане по всяко време.
+            </p>
+            <a href="https://www.youtube.com/@schoolpodcast32" target="_blank" class="btn btn-primary">
+                <i class="fab fa-youtube"></i>
+                Абонирай се за канала
+            </a>
         </div>
     </section>
 
@@ -173,11 +230,21 @@
     </footer>
 
     <script>
-        var header=document.getElementById('header');window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>50);});
-        function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
-        function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);var i=document.getElementById('themeIcon');if(i)i.className=n==='dark'?'fas fa-sun':'fas fa-moon';}
-        (function(){var i=document.getElementById('themeIcon');if(i)i.className=document.documentElement.getAttribute('data-theme')==='dark'?'fas fa-sun':'fas fa-moon';})();
-        var r=document.querySelectorAll('.reveal');var o=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('active');});},{threshold:0.1});r.forEach(function(el){o.observe(el);});
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+            document.getElementById('mobileOverlay').classList.toggle('open');
+            document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+        }
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>

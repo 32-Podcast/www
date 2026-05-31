@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Гости | Подкаст "Междучасие"</title>
     <meta name="description" content="Интересни гости в подкаста Междучасие - учители, ученици, личности от изкуството, спорта и науката.">
-    <meta name="theme-color" content="#f76f53">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>(function(){var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();</script>
+    <div class="ambient-bg">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
 
     <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
     <div class="mobile-menu" id="mobileMenu">
@@ -25,7 +28,9 @@
                     <span>Подкаст на 32. СУИЧЕ</span>
                 </div>
             </a>
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
         <nav>
             <a href="index.html">Начало</a>
@@ -47,6 +52,7 @@
                     <span>Подкаст на 32. СУИЧЕ</span>
                 </div>
             </a>
+
             <nav class="desktop-nav">
                 <a href="index.html">Начало</a>
                 <a href="episodes.html">Епизоди</a>
@@ -56,14 +62,15 @@
                 <a href="guests.html" class="active">Гости</a>
                 <a href="contact.html">Контакти</a>
             </nav>
+
             <div class="header-actions">
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Превключване на тема">
-                    <i class="fas fa-moon" id="themeIcon"></i>
-                </button>
                 <a href="https://www.youtube.com/@schoolpodcast32" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-youtube"></i> YouTube
+                    <i class="fab fa-youtube"></i>
+                    YouTube
                 </a>
-                <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+                <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -86,89 +93,135 @@
             <h2>Личности в ефира</h2>
             <p>Учители, ученици, артисти, спортисти и учени — всички са добре дошли в "Междучасие"</p>
         </div>
+
         <div class="guests-grid reveal">
             <div class="guest-card">
-                <div class="guest-photo"><i class="fas fa-user-tie"></i></div>
+                <div class="guest-photo">
+                    <i class="fas fa-user-tie"></i>
+                </div>
                 <div class="guest-info">
                     <h4>Г-жа Иванова</h4>
                     <div class="guest-role">Директор на 32. СУИЧЕ</div>
                     <p class="guest-desc">Разговор за визията на училището, иновативните методи и плановете за бъдещето.</p>
-                    <div class="guest-episode"><i class="fas fa-play-circle"></i> Епизод #42 — Среща с директора</div>
+                    <div class="guest-episode">
+                        <i class="fas fa-play-circle"></i> Епизод #42 — Среща с директора
+                    </div>
                 </div>
             </div>
+
             <div class="guest-card">
-                <div class="guest-photo"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="guest-photo">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
                 <div class="guest-info">
                     <h4>Г-н Петров</h4>
                     <div class="guest-role">Учител по физика</div>
                     <p class="guest-desc">За любовта към науката, вдъхновяващите експерименти и как да накараме физиката да оживее.</p>
-                    <div class="guest-episode"><i class="fas fa-play-circle"></i> Епизод #38 — Наука в действие</div>
+                    <div class="guest-episode">
+                        <i class="fas fa-play-circle"></i> Епизод #38 — Наука в действие
+                    </div>
                 </div>
             </div>
+
             <div class="guest-card">
-                <div class="guest-photo"><i class="fas fa-running"></i></div>
+                <div class="guest-photo">
+                    <i class="fas fa-running"></i>
+                </div>
                 <div class="guest-info">
                     <h4>Мария Георгиева</h4>
                     <div class="guest-role">Шампион по лека атлетика</div>
                     <p class="guest-desc">Бивша възпитаничка на 32. СУИЧЕ, споделя за пътя към успеха и важността на спорта.</p>
-                    <div class="guest-episode"><i class="fas fa-play-circle"></i> Епизод #35 — Спортен кът</div>
+                    <div class="guest-episode">
+                        <i class="fas fa-play-circle"></i> Епизод #35 — Спортен кът
+                    </div>
                 </div>
             </div>
+
             <div class="guest-card">
-                <div class="guest-photo"><i class="fas fa-palette"></i></div>
+                <div class="guest-photo">
+                    <i class="fas fa-palette"></i>
+                </div>
                 <div class="guest-info">
                     <h4>Александър Димитров</h4>
                     <div class="guest-role">Млад художник</div>
                     <p class="guest-desc">Ученик от 11. клас, представил изложба в Националната галерия. Разказ за изкуството и вдъхновението.</p>
-                    <div class="guest-episode"><i class="fas fa-play-circle"></i> Епизод #31 — Творческа работилница</div>
+                    <div class="guest-episode">
+                        <i class="fas fa-play-circle"></i> Епизод #31 — Творческа работилница
+                    </div>
                 </div>
             </div>
+
             <div class="guest-card">
-                <div class="guest-photo"><i class="fas fa-laptop-code"></i></div>
+                <div class="guest-photo">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
                 <div class="guest-info">
                     <h4>Д-р Стоянова</h4>
                     <div class="guest-role">Изследовател в областта на AI</div>
                     <p class="guest-desc">Разговор за изкуствения интелект, неговото бъдеще и как той ще промени образованието.</p>
-                    <div class="guest-episode"><i class="fas fa-play-circle"></i> Епизод #28 — Tech Talk</div>
+                    <div class="guest-episode">
+                        <i class="fas fa-play-circle"></i> Епизод #28 — Tech Talk
+                    </div>
                 </div>
             </div>
+
             <div class="guest-card">
-                <div class="guest-photo"><i class="fas fa-music"></i></div>
+                <div class="guest-photo">
+                    <i class="fas fa-music"></i>
+                </div>
                 <div class="guest-info">
                     <h4>Детски хор "Светлина"</h4>
                     <div class="guest-role">Представителен хор на 32. СУИЧЕ</div>
                     <p class="guest-desc">Изпълнения на живо и разговор за силата на музиката и хоровото пеене.</p>
-                    <div class="guest-episode"><i class="fas fa-play-circle"></i> Епизод #25 — Музикална рубрика</div>
+                    <div class="guest-episode">
+                        <i class="fas fa-play-circle"></i> Епизод #25 — Музикална рубрика
+                    </div>
                 </div>
             </div>
+
             <div class="guest-card">
-                <div class="guest-photo"><i class="fas fa-book-open"></i></div>
+                <div class="guest-photo">
+                    <i class="fas fa-book-open"></i>
+                </div>
                 <div class="guest-info">
                     <h4>Г-жа Костова</h4>
                     <div class="guest-role">Библиотекар и литературен критик</div>
                     <p class="guest-desc">Препоръчва любими книги, дискутира съвременната българска литература и четенето сред младите.</p>
-                    <div class="guest-episode"><i class="fas fa-play-circle"></i> Епизод #22 — Литературен салон</div>
+                    <div class="guest-episode">
+                        <i class="fas fa-play-circle"></i> Епизод #22 — Литературен салон
+                    </div>
                 </div>
             </div>
+
             <div class="guest-card">
-                <div class="guest-photo"><i class="fas fa-graduation-cap"></i></div>
+                <div class="guest-photo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
                 <div class="guest-info">
                     <h4>Виктория Панайотова</h4>
                     <div class="guest-role">Възпитаничка, студентка в Оксфорд</div>
                     <p class="guest-desc">Съвети за кандидатстване в чужбина, мотивация и как мечтите стават реалност.</p>
-                    <div class="guest-episode"><i class="fas fa-play-circle"></i> Епизод #18 — Пътят към успеха</div>
+                    <div class="guest-episode">
+                        <i class="fas fa-play-circle"></i> Епизод #18 — Пътят към успеха
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div style="text-align:center;margin-top:3.5rem;" class="reveal">
-            <div style="background:var(--card-bg);border-radius:var(--radius-xl);padding:2.5rem;border:1px solid var(--zen-muted);max-width:650px;margin:0 auto;">
-                <div style="width:60px;height:60px;background:var(--coral);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;color:white;font-size:1.5rem;">
+        <div style="text-align: center; margin-top: 4rem;" class="reveal">
+            <div style="background: var(--bg-card); border-radius: var(--radius-xl); padding: 3rem; box-shadow: var(--shadow-md); max-width: 700px; margin: 0 auto;">
+                <div style="width: 70px; height: 70px; background: var(--gradient-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.8rem;">
                     <i class="fas fa-microphone"></i>
                 </div>
-                <h3 style="font-family:'Junicode',serif;font-size:1.4rem;color:var(--text);margin-bottom:0.75rem;">Искаш да си наш гост?</h3>
-                <p style="color:var(--text);opacity:0.6;margin-bottom:1.25rem;">Ако имаш интересна история, талант или просто искаш да споделиш нещо важно — свържи се с нас! Всички са добре дошли в "Междучасие".</p>
-                <a href="contact.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Свържи се с нас</a>
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; color: var(--dark); margin-bottom: 1rem;">Искаш да си наш гост?</h3>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">
+                    Ако имаш интересна история, талант или просто искаш да споделиш нещо важно — 
+                    свържи се с нас! Всички са добре дошли в "Междучасие".
+                </p>
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Свържи се с нас
+                </a>
             </div>
         </div>
     </section>
@@ -212,11 +265,21 @@
     </footer>
 
     <script>
-        var header=document.getElementById('header');window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>50);});
-        function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
-        function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('theme',n);var i=document.getElementById('themeIcon');if(i)i.className=n==='dark'?'fas fa-sun':'fas fa-moon';}
-        (function(){var i=document.getElementById('themeIcon');if(i)i.className=document.documentElement.getAttribute('data-theme')==='dark'?'fas fa-sun':'fas fa-moon';})();
-        var r=document.querySelectorAll('.reveal');var o=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('active');});},{threshold:0.1});r.forEach(function(el){o.observe(el);});
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+            document.getElementById('mobileOverlay').classList.toggle('open');
+            document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+        }
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
