@@ -35,6 +35,7 @@
   --zen-dark: #2e2e2e;
   --coral: #f76f53;
   --coral-light: #fa8f7a;
+  --coral-bg: rgba(247, 111, 83, 0.1);
   --zen-muted: color-mix(in srgb, var(--zen-dark) 8%, transparent);
   --zen-subtle: color-mix(in srgb, var(--zen-dark) 4%, transparent);
   --bg-card: #ffffff;
@@ -45,13 +46,25 @@
 }
 
 :root[data-theme='dark'] {
-  --zen-paper: #1f1f1f;
-  --zen-dark: #d1cfc0;
-  --coral: #f76f53;
-  --coral-light: #fa8f7a;
+  --zen-paper: #1a1a1a;
+  --zen-dark: #ddd9c8;
+  --coral: #ff7a5c;
+  --coral-light: #fc9880;
+  --coral-bg: rgba(255, 122, 92, 0.1);
   --zen-muted: color-mix(in srgb, var(--zen-dark) 8%, transparent);
   --zen-subtle: color-mix(in srgb, var(--zen-dark) 4%, transparent);
-  --bg-card: #2a2a2a;
+  --bg-card: #262626;
+}
+
+:root[data-theme='catppuccin'] {
+  --zen-paper: #1e1e2e;
+  --zen-dark: #cdd6f4;
+  --coral: #cba6f7;
+  --coral-light: #f5c2e7;
+  --coral-bg: rgba(203, 166, 247, 0.1);
+  --zen-muted: color-mix(in srgb, #cdd6f4 8%, transparent);
+  --zen-subtle: color-mix(in srgb, #cdd6f4 4%, transparent);
+  --bg-card: #313244;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
