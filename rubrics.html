@@ -52,9 +52,9 @@
           <i class="fas fa-chevron-down" style="font-size:0.55rem"></i>
         </button>
         <div class="theme-dropdown-menu" id="themeDropdown">
-          <button data-theme="light" onclick="setTheme('light')"><i class="fas fa-sun"></i> Светла</button>
-          <button data-theme="dark" onclick="setTheme('dark')"><i class="fas fa-moon"></i> Тъмна</button>
-          <button data-theme="catppuccin" onclick="setTheme('catppuccin')"><i class="fas fa-palette"></i> Catppuccin</button>
+          <button data-theme="light" onclick="setTheme('light')" class="active"><i class="fas fa-sun"></i> <span>Светла</span> <i class="fas fa-check"></i></button>
+          <button data-theme="dark" onclick="setTheme('dark')"><i class="fas fa-moon"></i> <span>Тъмна</span> <i class="fas fa-check"></i></button>
+          <button data-theme="catppuccin" onclick="setTheme('catppuccin')"><i class="fas fa-palette"></i> <span>Catppuccin</span> <i class="fas fa-check"></i></button>
         </div>
       </div>
         <a href="https://www.youtube.com/@schoolpodcast32" target="_blank" class="btn btn-primary navbar-cta">
@@ -179,9 +179,9 @@
 var header=document.querySelector('.navbar');window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>50);});
 function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
 function toggleDropdown(e){e.stopPropagation();document.getElementById('themeDropdown').classList.toggle('open');}
-function setTheme(n){document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);document.getElementById('themeDropdown').classList.remove('open');var i=document.getElementById('themeIcon');if(i)i.className=n==='light'?'fas fa-sun':n==='dark'?'fas fa-moon':'fas fa-palette';}
+function setTheme(n){document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);document.getElementById('themeDropdown').classList.remove('open');var i=document.getElementById('themeIcon');if(i)i.className=n==='light'?'fas fa-sun':n==='dark'?'fas fa-moon':'fas fa-palette';var b=document.querySelectorAll('.theme-dropdown-menu button');for(var j=0;j<b.length;j++){b[j].classList.toggle('active',b[j].getAttribute('data-theme')===n);}}
 document.addEventListener('click',function(){var d=document.getElementById('themeDropdown');if(d)d.classList.remove('open');});
-(function(){var i=document.getElementById('themeIcon');if(i){var t=document.documentElement.getAttribute('data-theme');i.className=t==='light'?'fas fa-sun':t==='dark'?'fas fa-moon':'fas fa-palette';}})();
+(function(){var i=document.getElementById('themeIcon');if(i){var t=document.documentElement.getAttribute('data-theme');i.className=t==='light'?'fas fa-sun':t==='dark'?'fas fa-moon':'fas fa-palette';}var b=document.querySelectorAll('.theme-dropdown-menu button');for(var j=0;j<b.length;j++){b[j].classList.toggle('active',b[j].getAttribute('data-theme')===t);}})();
 var r=document.querySelectorAll('.reveal');var o=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('active');});},{threshold:0.1});r.forEach(function(el){o.observe(el);});
 </script>
 </body>
