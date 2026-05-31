@@ -1,6 +1,32 @@
 @font-face {
-  font-family: 'CustomHeading';
-  src: url('fonts/custom-font.ttf') format('truetype');
+  font-family: 'Kometa';
+  src: url('fonts/Kometa-Reg.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kometa';
+  src: url('fonts/Kometa-RegIt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kometa';
+  src: url('fonts/Kometa-Med.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kometa';
+  src: url('fonts/Kometa-Bld.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kometa';
+  src: url('fonts/Kometa-Hv.ttf') format('truetype');
+  font-weight: 700;
   font-display: swap;
 }
 
@@ -257,7 +283,7 @@ a:hover { color: var(--coral-light); }
 @media (min-width: 768px) { .hero-inner { gap: 2rem; } }
 .hero-text { max-width: 800px; }
 .hero h1 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: clamp(2.5rem, 7vw, 5.5rem);
   font-weight: 600;
   color: var(--zen-dark);
@@ -265,7 +291,7 @@ a:hover { color: var(--coral-light); }
   margin-bottom: 1rem;
 }
 .hero h1 .highlight {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   color: var(--coral);
   font-weight: 400;
 }
@@ -335,7 +361,7 @@ section { padding: 4rem 0; }
   margin-bottom: 0.5rem;
 }
 .section-title {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 600;
   color: var(--zen-dark);
@@ -401,7 +427,7 @@ section { padding: 4rem 0; }
 }
 .stat-item:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--coral) 20%, transparent); }
 .stat-item .number {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--coral);
@@ -450,14 +476,14 @@ section { padding: 4rem 0; }
   font-size: 0.9rem;
 }
 .floating-card .finfo h4 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--zen-dark);
 }
 .floating-card .finfo span { font-size: 0.78rem; color: var(--zen-dark); opacity: 0.5; }
 .about-content h3 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--zen-dark);
@@ -477,7 +503,7 @@ section { padding: 4rem 0; }
   text-align: center;
 }
 .page-header h1 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 600;
   color: var(--zen-dark);
@@ -578,7 +604,7 @@ section { padding: 4rem 0; }
   box-shadow: 0 8px 24px rgba(255,0,0,0.2);
 }
 .youtube-card h3 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: 1.4rem;
   color: var(--zen-dark);
   margin-bottom: 0.5rem;
@@ -769,7 +795,7 @@ section { padding: 4rem 0; }
   font-size: 1.3rem;
 }
 .rubric-card h4 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: 1.05rem;
   color: var(--zen-dark);
   margin-bottom: 0.4rem;
@@ -837,7 +863,7 @@ section { padding: 4rem 0; }
 }
 @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
 .contact-info h3 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: 1.4rem;
   color: var(--zen-dark);
   margin-bottom: 1rem;
@@ -880,7 +906,7 @@ section { padding: 4rem 0; }
   padding: 2rem;
 }
 .contact-form h3 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: 1.2rem;
   color: var(--zen-dark);
   margin-bottom: 1.15rem;
@@ -1035,7 +1061,7 @@ footer {
   padding: 4rem 1rem;
 }
 .page-404 h1 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: clamp(5rem, 15vw, 8rem);
   font-weight: 600;
   color: var(--coral);
@@ -1043,7 +1069,7 @@ footer {
   margin: 0;
 }
 .page-404 h2 {
-  font-family: 'CustomHeading', serif;
+  font-family: 'Kometa', serif;
   font-size: clamp(1.5rem, 4vw, 2rem);
   color: var(--zen-dark);
   font-weight: 600;
