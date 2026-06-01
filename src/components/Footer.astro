@@ -1,5 +1,5 @@
 ---
-import { youtubeChannel, facebookPage, instagramPage, schoolSite, githubRepo, type NavItem } from '../data/site';
+import { youtubeChannel, facebookPage, instagramPage, schoolSite, githubRepo, githubOrg, type NavItem } from '../data/site';
 
 export interface Props {
   items: NavItem[];
@@ -40,6 +40,7 @@ const aboutLinks = items.filter(i => ['/team', '/guests', '/contact'].includes(i
             <a href={facebookPage} target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href={youtubeChannel} target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             <a href={instagramPage} target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href={githubOrg} target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
