@@ -12,6 +12,10 @@ const thumb = thumbnailUrl(episode.id);
   <a href={url} target="_blank" class="episode-thumb-link" rel="noopener">
     <div class="episode-thumb">
       <img src={thumb} alt="" loading="lazy">
+      <div class="thumb-title-overlay">
+        {episode.label && <span class="thumb-label">{episode.label}</span>}
+        <h4>{episode.title}</h4>
+      </div>
       <span class="play-overlay"><i class="fas fa-play"></i></span>
     </div>
   </a>
