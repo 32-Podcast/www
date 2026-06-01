@@ -602,13 +602,18 @@ section { padding: 4rem 0; }
   background: var(--zen-dark);
   border-radius: var(--radius-xl);
   padding: 3rem 2rem;
-  margin: 4rem 0;
+  margin: 4rem 0 1.5rem;
   overflow: hidden;
 }
 @media (min-width: 768px) { .team-section { padding: 4rem; } }
 .team-section .section-title { color: var(--zen-paper); }
 .team-section .section-desc { opacity: 0.6; color: var(--zen-paper); }
 .team-section .section-tag { color: var(--coral-light); }
+:root[data-theme='catppuccin'] .team-section { background: #11111b; }
+:root[data-theme='catppuccin'] .team-section .section-title,
+:root[data-theme='catppuccin'] .team-section .section-desc,
+:root[data-theme='catppuccin'] .team-card h4,
+:root[data-theme='catppuccin'] .team-card .class { color: #cdd6f4; }
 .team-grid {
   display: grid;
   grid-template-columns: 1fr;
