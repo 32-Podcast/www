@@ -371,18 +371,22 @@ section { padding: 4rem 0; }
 /* ============================================
    SCHEDULE
    ============================================ */
-.schedule-grid { display: grid; grid-template-columns: 1fr; gap: 0.65rem; }
-@media (min-width: 640px) { .schedule-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1024px) { .schedule-grid { grid-template-columns: repeat(7, 1fr); } }
-.schedule-day { background: var(--color-card); border: 1px solid var(--color-muted); border-radius: var(--radius-lg); padding: 1.15rem; text-align: center; }
-.schedule-day .day-name { font-weight: 600; color: var(--color-ink); margin-bottom: 0.35rem; font-size: 0.9rem; }
-.schedule-day .day-date { font-size: 0.72rem; color: var(--color-ink); opacity: 0.45; margin-bottom: 0.65rem; }
-.schedule-slot { background: color-mix(in srgb, var(--color-coral) 6%, transparent); border-radius: 6px; padding: 0.45rem; margin-bottom: 0.3rem; font-size: 0.78rem; }
-.schedule-slot.is-off { background: color-mix(in srgb, var(--color-ink) 2%, transparent); }
-.schedule-slot .time { font-weight: 600; color: var(--color-coral); display: block; font-size: 0.72rem; }
-.schedule-slot .topic { color: var(--color-ink); font-size: 0.78rem; }
-.schedule-day.today { border: 2px solid var(--color-coral); }
-.schedule-day.today .day-name { color: var(--color-coral); }
+.calendar { background: var(--color-card); border: 1px solid var(--color-muted); border-radius: var(--radius-xl); padding: 1.5rem; max-width: 900px; margin: 0 auto; }
+@media (min-width: 640px) { .calendar { padding: 2rem; } }
+.calendar-header { text-align: center; margin-bottom: 1.25rem; }
+.calendar-header h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.75rem); color: var(--color-ink); margin: 0; font-weight: 600; }
+.calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 0.5rem; }
+.weekday { text-align: center; font-size: 0.72rem; font-weight: 600; color: var(--color-ink); opacity: 0.5; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.4rem 0; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.calendar-cell { aspect-ratio: 1; background: var(--color-subtle); border-radius: var(--radius-sm); display: flex; align-items: flex-start; justify-content: flex-end; padding: 0.5rem; min-height: 44px; }
+.calendar-cell.empty { background: transparent; }
+.calendar-cell .cell-day { font-size: 0.82rem; font-weight: 500; color: var(--color-ink); opacity: 0.8; }
+.calendar-cell.today { background: var(--color-coral); }
+.calendar-cell.today .cell-day { color: white; opacity: 1; font-weight: 700; }
+@media (min-width: 640px) {
+  .calendar-cell { padding: 0.65rem; }
+  .calendar-cell .cell-day { font-size: 0.95rem; }
+}
 
 /* ============================================
    RUBRICS
