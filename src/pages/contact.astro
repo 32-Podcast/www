@@ -4,6 +4,10 @@ import PageHeader from '../components/PageHeader.astro';
 import ContactItem from '../components/ContactItem.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { youtubeChannel, contactEmail } from '../data/site';
+
+// Web3Forms access key — get yours at https://web3forms.com (free, 250/month)
+// Just sign in with the receiving email and paste the key here.
+const web3formsKey = 'YOUR_ACCESS_KEY_HERE';
 ---
 <BaseLayout title="Контакти" description="Свържи се с екипа на 32 Подкаст." activeNav="/contact">
   <div class="container">
@@ -25,7 +29,16 @@ import { youtubeChannel, contactEmail } from '../data/site';
         </div>
         <div class="contact-form">
           <h3>Изпрати съобщение</h3>
-          <form onsubmit="arguments[0].preventDefault();alert('Благодарим ти! Съобщението е изпратено успешно.');">
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value={web3formsKey}>
+            <input type="hidden" name="subject" value="Ново съобщение от 32 Подкаст сайта">
+            <input type="hidden" name="from_name" value="32 Подкаст — Форма за контакт">
+            <input type="hidden" name="replyto" value="email">
+            <input type="hidden" name="redirect" value="false">
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+            <div id="formResult" class="form-result" hidden></div>
+
             <div class="form-group">
               <label for="name">Име</label>
               <input type="text" id="name" name="name" placeholder="Твоето име" required>
@@ -36,13 +49,13 @@ import { youtubeChannel, contactEmail } from '../data/site';
             </div>
             <div class="form-group">
               <label for="subject">Тема</label>
-              <select id="subject" name="subject" required>
+              <select id="subject" name="topic" required>
                 <option value="">Избери тема</option>
-                <option value="idea">Предложи идея за рубрика</option>
-                <option value="guest">Искам да съм гост</option>
-                <option value="feedback">Обратна връзка</option>
-                <option value="question">Въпрос</option>
-                <option value="other">Друго</option>
+                <option value="Идея за рубрика">Предложи идея за рубрика</option>
+                <option value="Гост">Искам да съм гост</option>
+                <option value="Обратна връзка">Обратна връзка</option>
+                <option value="Въпрос">Въпрос</option>
+                <option value="Друго">Друго</option>
               </select>
             </div>
             <div class="form-group">
@@ -50,7 +63,7 @@ import { youtubeChannel, contactEmail } from '../data/site';
               <textarea id="message" name="message" placeholder="Разкажи ни повече..." required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:0.75rem 1.5rem;">
-              <i class="fas fa-paper-plane"></i> Изпрати съобщение
+              <i class="fas fa-paper-plane"></i> <span id="submitText">Изпрати съобщение</span>
             </button>
           </form>
         </div>
@@ -58,3 +71,50 @@ import { youtubeChannel, contactEmail } from '../data/site';
     </section>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function() {
+    var form = document.getElementById('contactForm');
+    var result = document.getElementById('formResult');
+    var submitText = document.getElementById('submitText');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      if (submitText) submitText.textContent = 'Изпращане...';
+      if (result) { result.hidden = true; result.className = 'form-result'; result.textContent = ''; }
+
+      var data = new FormData(form);
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(json) {
+        if (json.success) {
+          if (result) {
+            result.hidden = false;
+            result.className = 'form-result success';
+            result.innerHTML = '<i class="fas fa-check-circle"></i> Благодарим ти! Съобщението е изпратено успешно.';
+          }
+          form.reset();
+        } else {
+          throw new Error(json.message || 'Грешка при изпращане');
+        }
+      })
+      .catch(function(err) {
+        if (result) {
+          result.hidden = false;
+          result.className = 'form-result error';
+          result.innerHTML = '<i class="fas fa-exclamation-circle"></i> Възникна грешка: ' + (err.message || 'опитай отново');
+        }
+      })
+      .finally(function() {
+        btn.disabled = false;
+        if (submitText) submitText.textContent = 'Изпрати съобщение';
+      });
+    });
+  })();
+</script>

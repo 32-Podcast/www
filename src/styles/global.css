@@ -438,6 +438,10 @@ section { padding: 4rem 0; }
 .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.7rem 0.85rem; border: 2px solid var(--color-muted); border-radius: var(--radius-sm); font-family: var(--font-sans); font-size: 0.9rem; color: var(--color-ink); transition: all .2s; background: var(--color-paper); }
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--color-coral); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-coral) 10%, transparent); }
 .form-group textarea { resize: vertical; min-height: 90px; }
+.form-result { padding: 0.85rem 1rem; border-radius: var(--radius-md); font-size: 0.88rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+.form-result i { font-size: 1rem; }
+.form-result.success { background: color-mix(in srgb, #10b981 15%, transparent); color: #047857; border: 1px solid color-mix(in srgb, #10b981 30%, transparent); }
+.form-result.error { background: color-mix(in srgb, #ef4444 15%, transparent); color: #b91c1c; border: 1px solid color-mix(in srgb, #ef4444 30%, transparent); }
 
 /* ============================================
    FOOTER
