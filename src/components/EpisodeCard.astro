@@ -1,5 +1,5 @@
 ---
-import { type Episode, youtubeUrl, thumbnailUrl } from '../data/episodes';
+import { type Episode, youtubeUrl, thumbnailUrl, episodeLabel, formatDate } from '../data/episodes';
 
 export interface Props {
   episode: Episode;
@@ -7,13 +7,20 @@ export interface Props {
 const { episode } = Astro.props;
 const url = youtubeUrl(episode.id);
 const thumb = thumbnailUrl(episode.id);
+const label = episodeLabel(episode.order);
+const date = formatDate(episode.date);
+const isSpecial = episode.rubric === 'SPECIAL';
 ---
 <article class="episode-card reveal">
-  <a href={url} target="_blank" class="episode-thumb-link" rel="noopener">
+  <a href={url} target="_blank" class="episode-thumb-link" rel="noopener" aria-label={label}>
     <div class="episode-thumb">
       <img src={thumb} alt="" loading="lazy">
+      <div class="thumb-top-row">
+        <span class:list={["thumb-label", isSpecial && "is-special"]}>{label}</span>
+        <span class="thumb-date">{date}</span>
+      </div>
       <div class="thumb-title-overlay">
-        {episode.label && <span class="thumb-label">{episode.label}</span>}
+        {isSpecial && <span class="thumb-rubric">SPECIAL</span>}
         <h4>{episode.title}</h4>
       </div>
       <span class="play-overlay"><i class="fas fa-play"></i></span>

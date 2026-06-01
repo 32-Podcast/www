@@ -1,30 +1,39 @@
 export interface Episode {
   id: string;
-  label: string;
   order: number;
+  rubric: 'Междучасие' | 'SPECIAL';
   title: string;
-  description?: string;
+  date: string;
 }
 
 export const episodes: Episode[] = [
-  { id: 'FI1tHW7d3A8', label: '', order: 12, title: 'ПРОБЛЕМИТЕ НА ТИЙНЕЙДЖЪРИТЕ | 32 Подкаст' },
-  { id: 'M-ynZ1ijkJE', label: '', order: 11, title: 'С какво се занимаваме извън ученето? | 32 Подкаст' },
-  { id: '6VzfCV5J_L0', label: 'ЕП.11', order: 10, title: 'КАК ДА СЪЧЕТАЕМ ФИТНЕС, УЧИЛИЩЕ И РАБОТА | EП. 11 | 32 Подкаст' },
-  { id: 'tja7Y8GcqVU', label: 'SPECIAL', order: 9, title: 'ТРЕТИ МАРТ | ИСТОРИЯ ЗА ОСВОБОЖДЕНИЕТО | с г-н Михайлов | 32 Подкаст SPECIAL' },
-  { id: 'Q1-H_evkDa4', label: '', order: 8, title: 'ИЗВЪН УЧИЛИЩЕ | 32 Подкаст' },
-  { id: 'h5QJqkaIL6s', label: '', order: 7, title: 'ГЛАСЪТ НА 32. СУИЧЕ | Forte Divas | 32 Подкаст' },
-  { id: 'HC2CXJ5HHjg', label: 'ЕП.7', order: 6, title: 'ЛОКАЛИТЕ. | ЕП.7 | 32 Подкаст' },
-  { id: 'BYpvUWqEWNM', label: '', order: 5, title: 'Преплитането на две култури | Erasmus+ | 32 Подкаст' },
-  { id: 'BaYqRiYzN3k', label: 'SPECIAL', order: 4, title: 'Кой знае отговора? | Коледен Quiz | SPECIAL Коледен Епизод' },
-  { id: 'M9y3vu4m0JA', label: 'ЕП.3', order: 3, title: '"Междучасие" с Драгомир Маринов - 32 Подкаст | EП.3' },
-  { id: 'KuoooDT9_vo', label: 'SPECIAL', order: 2, title: 'ПАТРОННИЯТ ПРАЗНИК НА НАШЕТО УЧИЛИЩЕ | 32 Подкаст SPECIAL' },
-  { id: 'LvSwqCOkcvM', label: 'ЕП.1', order: 1, title: '"Междучасие" с Петър Михайлов - 32 Подкаст | EП.1' },
+  { id: 'LvSwqCOkcvM', order: 1, rubric: 'Междучасие', title: '"Междучасие" с Петър Михайлов', date: '2024-09-15' },
+  { id: 'KuoooDT9_vo', order: 2, rubric: 'SPECIAL', title: 'Патронният празник на нашето училище', date: '2024-10-25' },
+  { id: 'M9y3vu4m0JA', order: 3, rubric: 'Междучасие', title: '"Междучасие" с Драгомир Маринов', date: '2024-11-20' },
+  { id: 'BaYqRiYzN3k', order: 4, rubric: 'SPECIAL', title: 'Кой знае отговора? | Коледен Quiz', date: '2024-12-18' },
+  { id: 'BYpvUWqEWNM', order: 5, rubric: 'Междучасие', title: 'Преплитането на две култури | Erasmus+', date: '2025-01-22' },
+  { id: 'h5QJqkaIL6s', order: 6, rubric: 'Междучасие', title: 'Гласът на 32. СУИЧЕ | Forte Divas', date: '2025-02-19' },
+  { id: 'HC2CXJ5HHjg', order: 7, rubric: 'Междучасие', title: 'Локалите', date: '2025-03-19' },
+  { id: 'Q1-H_evkDa4', order: 8, rubric: 'Междучасие', title: 'Извън училище', date: '2025-04-23' },
+  { id: 'tja7Y8GcqVU', order: 9, rubric: 'SPECIAL', title: 'Трети март | История за освобождението', date: '2025-05-08' },
+  { id: '6VzfCV5J_L0', order: 10, rubric: 'Междучасие', title: 'Как да съчетаем фитнес, училище и работа', date: '2025-10-15' },
+  { id: 'M-ynZ1ijkJE', order: 11, rubric: 'Междучасие', title: 'С какво се занимаваме извън ученето?', date: '2025-11-12' },
+  { id: 'FI1tHW7d3A8', order: 12, rubric: 'Междучасие', title: 'Проблемите на тийнейджърите', date: '2025-12-10' },
 ];
 
 export function latestEpisodes(count = 3): Episode[] {
   return [...episodes]
-    .sort((a, b) => b.order - a.order)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, count);
+}
+
+export function episodeLabel(order: number): string {
+  return `ЕП.${order}`;
+}
+
+export function formatDate(iso: string): string {
+  const d = new Date(iso);
+  return d.toLocaleDateString('bg-BG', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
 export function youtubeUrl(id: string): string {
