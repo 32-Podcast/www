@@ -1,4 +1,10 @@
 @font-face {
+  font-family: 'Kometa Unicase';
+  src: url('fonts/KometaUnicase-Hv.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Kometa';
   src: url('fonts/Kometa-Reg.ttf') format('truetype');
   font-weight: 400;
@@ -138,6 +144,7 @@ a:hover { color: var(--coral-light); }
   font-weight: 700;
   color: var(--zen-dark);
   text-decoration: none;
+  font-family: 'Kometa Unicase', serif;
 }
 .navbar-logo {
   width: 32px; height: 32px;
@@ -357,7 +364,7 @@ a:hover { color: var(--coral-light); }
   margin-bottom: 1rem;
 }
 .hero h1 .highlight {
-  font-family: 'Kometa', serif;
+  font-family: 'Kometa Unicase', serif;
   color: var(--coral);
   font-weight: 400;
 }
@@ -1052,6 +1059,7 @@ footer {
   font-weight: 700;
   color: #f2f0e3;
   line-height: 1;
+  font-family: 'Kometa Unicase', serif;
 }
 :root[data-theme='dark'] .footer-brand-name { color: #ddd9c8; }
 :root[data-theme='catppuccin'] .footer-brand-name { color: #cdd6f4; }
