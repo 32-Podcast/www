@@ -87,13 +87,13 @@
 </div>
 
 <script>
-var episodes=[{id:'Q1-H_evkDa4',label:'ЕП.11',order:6},{id:'HC2CXJ5HHjg',label:'ЕП.7',order:5},{id:'FI1tHW7d3A8',label:'',order:4},{id:'M9y3vu4m0JA',label:'ЕП.3',order:3},{id:'KuoooDT9_vo',label:'SPECIAL',order:2},{id:'LvSwqCOkcvM',label:'ЕП.1',order:1}];
+var episodes=[{id:'Q1-H_evkDa4',label:'ЕП.11',order:6,title:'ИЗВЪН УЧИЛИЩЕ | 32 Подкаст'},{id:'HC2CXJ5HHjg',label:'ЕП.7',order:5,title:'ЛОКАЛИТЕ. | ЕП.7 | 32 Подкаст'},{id:'FI1tHW7d3A8',label:'',order:4,title:'ПРОБЛЕМИТЕ НА ТИЙНЕЙДЖЪРИТЕ | 32 Подкаст'},{id:'M9y3vu4m0JA',label:'ЕП.3',order:3,title:'"Междучасие" с Драгомир Маринов - 32 Подкаст | EП.3'},{id:'KuoooDT9_vo',label:'SPECIAL',order:2,title:'ПАТРОННИЯТ ПРАЗНИК НА НАШЕТО УЧИЛИЩЕ | 32 Подкаст SPECIAL'},{id:'LvSwqCOkcvM',label:'ЕП.1',order:1,title:'"Междучасие" с Петър Михайлов - 32 Подкаст | EП.1'}];
 var c=document.getElementById('episodesContainer');
 var fetched=0;
 function done(){var l=document.getElementById('episodesLoading');if(l)l.remove();if(window.loadReveal)window.loadReveal();}
 episodes.forEach(function(ep){
   var card=document.createElement('div');card.className='episode-card reveal';card.dataset.order=ep.order;
-  card.innerHTML='<a href="https://www.youtube.com/watch?v='+ep.id+'" target="_blank" class="episode-thumb-link"><div class="episode-thumb"><img src="https://i.ytimg.com/vi/'+ep.id+'/hqdefault.jpg" alt="" loading="lazy"><span class="play-overlay"><i class="fas fa-play"></i></span></div></a><div class="episode-info">'+(ep.label?'<span class="episode-tag">'+ep.label+'</span>':'')+'<h4>'+ep.id+'</h4><a href="https://www.youtube.com/watch?v='+ep.id+'" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.75rem;"><i class="fab fa-youtube"></i> Гледай в YouTube</a></div>';
+  card.innerHTML='<a href="https://www.youtube.com/watch?v='+ep.id+'" target="_blank" class="episode-thumb-link"><div class="episode-thumb"><img src="https://i.ytimg.com/vi/'+ep.id+'/hqdefault.jpg" alt="" loading="lazy"><span class="play-overlay"><i class="fas fa-play"></i></span></div></a><div class="episode-info">'+(ep.label?'<span class="episode-tag">'+ep.label+'</span>':'')+'<h4>'+ep.title+'</h4><a href="https://www.youtube.com/watch?v='+ep.id+'" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.75rem;"><i class="fab fa-youtube"></i> Гледай в YouTube</a></div>';
   c.appendChild(card);
   fetch('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v='+ep.id+'&format=json').then(function(r){return r.json();}).then(function(d){
     var h4=card.querySelector('h4');if(h4)h4.textContent=d.title;
