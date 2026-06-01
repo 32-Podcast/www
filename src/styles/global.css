@@ -350,10 +350,8 @@ section { padding: 4rem 0; }
 .episode-card:hover .play-overlay { opacity: 1; }
 .play-overlay i { font-size: 2.5rem; color: white; opacity: 0.9; }
 .episode-duration { position: absolute; bottom: 0.65rem; right: 0.65rem; background: rgba(0,0,0,0.55); color: white; padding: 0.15rem 0.6rem; border-radius: 100px; font-size: 0.72rem; font-weight: 500; z-index: 1; }
-.episode-info { padding: 1.15rem; }
-.episode-tag { display: inline-block; background: color-mix(in srgb, var(--color-coral) 10%, transparent); color: var(--color-coral); padding: 0.1rem 0.65rem; border-radius: 100px; font-size: 0.68rem; font-weight: 600; margin-bottom: 0.4rem; }
-.episode-info h4 { font-size: 0.95rem; font-weight: 600; color: var(--color-ink); margin-bottom: 0.35rem; line-height: 1.4; }
-.episode-info p { color: var(--color-ink); opacity: 0.55; font-size: 0.82rem; line-height: 1.6; }
+.episode-info { padding: 0.85rem 1rem 1rem; }
+.episode-info p { color: var(--color-ink); opacity: 0.55; font-size: 0.82rem; line-height: 1.6; margin-bottom: 0.65rem; }
 .episode-meta { display: flex; gap: 0.75rem; margin-top: 0.65rem; padding-top: 0.65rem; border-top: 1px solid var(--color-muted); }
 .episode-meta span { font-size: 0.72rem; color: var(--color-ink); opacity: 0.45; display: flex; align-items: center; gap: 0.2rem; }
 

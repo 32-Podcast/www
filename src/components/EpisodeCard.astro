@@ -20,10 +20,8 @@ const thumb = thumbnailUrl(episode.id);
     </div>
   </a>
   <div class="episode-info">
-    {episode.label && <span class="episode-tag">{episode.label}</span>}
-    <h4>{episode.title}</h4>
     {episode.description && <p>{episode.description}</p>}
-    <a href={url} target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.75rem;">
+    <a href={url} target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;">
       <i class="fab fa-youtube"></i> Гледай в YouTube
     </a>
   </div>
