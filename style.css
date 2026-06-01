@@ -5,6 +5,20 @@
   font-display: swap;
 }
 @font-face {
+  font-family: 'Junicode';
+  src: url('fonts/JunicodeVF-Roman.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0100-024F, U+0250-02AF, U+02B0-02FF, U+0300-036F, U+0370-03FF, U+1D00-1D7F, U+1E00-1EFF, U+1F00-1FFF, U+2000-206F, U+2070-209F, U+2100-214F, U+2150-218F, U+2200-22FF, U+2460-24FF, U+2500-25FF, U+2C60-2C7F, U+A720-A7FF, U+AB30-AB6F, U+FB00-FB06, U+FE00-FE0F, U+10330-1034F;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Junicode-Italic';
+  src: url('fonts/JunicodeVF-Italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0100-024F, U+0250-02AF, U+02B0-02FF, U+0300-036F, U+0370-03FF, U+1D00-1D7F, U+1E00-1EFF, U+1F00-1FFF, U+2000-206F, U+2070-209F, U+2100-214F, U+2150-218F, U+2200-22FF, U+2460-24FF, U+2500-25FF, U+2C60-2C7F, U+A720-A7FF, U+AB30-AB6F, U+FB00-FB06, U+FE00-FE0F, U+10330-1034F;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Kometa';
   src: url('fonts/Kometa-Reg.ttf') format('truetype');
   font-weight: 400;
@@ -49,6 +63,8 @@
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+  --font: 'Junicode', 'Times New Roman', 'Noto Serif', serif;
+  --font-italic: 'Junicode-Italic', 'Times New Roman', 'Noto Serif', serif;
 }
 
 :root[data-theme='dark'] {
@@ -89,6 +105,7 @@ body {
   text-wrap: balance;
   transition: background .3s ease, color .3s ease;
 }
+.font-junicode { font-family: var(--font); }
 
 .container {
   width: 100%;
@@ -173,6 +190,7 @@ a:hover { color: var(--coral-light); }
 }
 .navbar-center a:hover, .navbar-center a.active { opacity: 1; color: var(--coral); }
 
+.navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.04); }
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -489,7 +507,7 @@ section { padding: 4rem 0; }
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
 }
-@media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
 .stat-item {
   background: var(--bg-card);
   border: 1px solid var(--zen-muted);

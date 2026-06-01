@@ -108,10 +108,6 @@ episodes.forEach(function(ep){
   var card=document.createElement('div');card.className='episode-card reveal';card.dataset.order=ep.order;
   card.innerHTML='<a href="https://www.youtube.com/watch?v='+ep.id+'" target="_blank" class="episode-thumb-link"><div class="episode-thumb"><img src="https://i.ytimg.com/vi/'+ep.id+'/hqdefault.jpg" alt="" loading="lazy"><span class="play-overlay"><i class="fas fa-play"></i></span></div></a><div class="episode-info">'+(ep.label?'<span class="episode-tag">'+ep.label+'</span>':'')+'<h4>'+ep.title+'</h4><a href="https://www.youtube.com/watch?v='+ep.id+'" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.75rem;"><i class="fab fa-youtube"></i> Гледай в YouTube</a></div>';
   c.appendChild(card);
-  fetch('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v='+ep.id+'&format=json').then(function(r){return r.json();}).then(function(d){
-    var h4=card.querySelector('h4');if(h4)h4.textContent=d.title;
-    var img=card.querySelector('img');if(img&&d.thumbnail_url)img.src=d.thumbnail_url;
-  })['catch'](function(){});
   fetched++;if(fetched===episodes.length){[].slice.call(c.children).sort(function(a,b){return (a.dataset.order||0)-(b.dataset.order||0);}).forEach(function(el){c.appendChild(el);});done();}
 });
 </script>
@@ -150,12 +146,12 @@ episodes.forEach(function(ep){
           <div class="social-links" style="margin-top:0.75rem;">
             <a href="https://www.facebook.com/school32.bg/" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.youtube.com/@schoolpodcast32" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/32.podcast/" target="_blank"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>Copyright 2024 - 2026 &copy; Всички права запазени - Подкаст "32 Подкаст"</p>
+        <p>Copyright 2024 - 2026 &copy; Всички права запазени</p>
         <p>32. СУИЧЕ "Св. Климент Охридски"</p>
       </div>
     </div>
