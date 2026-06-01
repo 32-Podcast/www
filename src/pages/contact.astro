@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import ContactItem from '../components/ContactItem.astro';
 import SocialLinks from '../components/SocialLinks.astro';
-import { youtubeChannel } from '../data/site';
+import { youtubeChannel, contactEmail } from '../data/site';
 ---
 <BaseLayout title="Контакти" description="Свържи се с екипа на 32 Подкаст." activeNav="/contact">
   <div class="container">
@@ -17,7 +17,7 @@ import { youtubeChannel } from '../data/site';
           <div class="section-tag">Контакти</div>
           <h3>Нека поговорим</h3>
           <p>Ние обичаме да чуваме от вас! Независимо дали имаш идея за рубрика, искаш да станеш гост, или просто искаш да споделиш мнението си — винаги сме на линия.</p>
-          <ContactItem icon="envelope" title="Имейл" body="podcast@school32.com" href="mailto:podcast@school32.com" />
+          <ContactItem icon="envelope" title="Имейл" body={contactEmail} href={`mailto:${contactEmail}`} />
           <ContactItem icon="youtube" iconBrand={true} title="YouTube канал" body="@schoolpodcast32" href={youtubeChannel} external />
           <ContactItem icon="school" title="Училище" body='32. СУИЧЕ "Св. Климент Охридски"' />
           <ContactItem icon="clock" title="Работно време" body="Понеделник — Петък, 12:00 — 13:00 ч." />
