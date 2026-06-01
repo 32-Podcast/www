@@ -1,0 +1,35 @@
+---
+import ThemeDropdown from './ThemeDropdown.astro';
+import { youtubeChannel, type NavItem } from '../data/site';
+
+export interface Props {
+  items: NavItem[];
+  activeNav?: string;
+}
+
+const { items, activeNav = '' } = Astro.props;
+---
+<header class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="/" class="navbar-brand">
+        <div class="navbar-logo"><img src="/images/logo32.png" alt="32 Подкаст"></div>
+        <span>32 Подкаст</span>
+      </a>
+      <nav class="navbar-center">
+        {items.map(item => (
+          <a href={item.href} class={item.href === activeNav ? 'active' : ''}>{item.label}</a>
+        ))}
+      </nav>
+      <div class="navbar-actions">
+        <ThemeDropdown />
+        <a href={youtubeChannel} target="_blank" class="btn btn-primary navbar-cta">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <button class="mobile-hamburger" onclick="toggleMobileMenu()" aria-label="Меню">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

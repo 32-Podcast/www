@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ScheduleDay from '../components/ScheduleDay.astro';
+import { youtubeChannel } from '../data/site';
+
+// Current week starting Monday, June 1, 2026
+const days = [
+  { name: 'Понеделник', date: '1 юни', topic: 'Нов епизод', isOff: false, isToday: true },
+  { name: 'Вторник',    date: '2 юни', topic: 'Нов епизод', isOff: false },
+  { name: 'Сряда',      date: '3 юни', topic: 'Почивен ден', isOff: true },
+  { name: 'Четвъртък',  date: '4 юни', topic: 'Междучасие', isOff: false },
+  { name: 'Петък',      date: '5 юни', topic: 'Почивен ден', isOff: true },
+  { name: 'Събота',     date: '6 юни', topic: 'SPECIAL', isOff: false },
+  { name: 'Неделя',     date: '7 юни', topic: 'Почивен ден', isOff: true },
+];
+---
+<BaseLayout title="Програма" description="Седмична програма на 32 Подкаст — кога да очакваш новите предавания." activeNav="/schedule">
+  <div class="container">
+    <PageHeader title="Седмична програма" current="Програма" description="Виж кога излизат любимите ти рубрики и не пропускай нищо" />
+  </div>
+
+  <div class="container">
+    <section style="padding-top:0;">
+      <div style="text-align:center;margin-bottom:2.5rem;" class="reveal">
+        <div class="section-tag">Тази седмица</div>
+        <div class="section-title">1 юни — 7 юни 2026</div>
+        <p class="section-desc" style="margin:0 auto;">Предаванията излизат в 12:00 ч. на YouTube канала</p>
+      </div>
+      <div class="schedule-grid reveal">
+        {days.map(d => (
+          <ScheduleDay
+            name={d.name}
+            date={d.date}
+            topic={d.topic}
+            isOff={d.isOff}
+            isToday={d.isToday}
+          />
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+        <p style="color:var(--color-ink);opacity:0.6;margin-bottom:1rem;">
+          <i class="fas fa-info-circle" style="color:var(--color-coral);"></i>
+          Всички предавания се качват на YouTube за гледане по всяко време.
+        </p>
+        <a href={youtubeChannel} target="_blank" rel="noopener" class="btn btn-primary">
+          <i class="fab fa-youtube"></i> Абонирай се
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

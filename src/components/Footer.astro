@@ -1,0 +1,52 @@
+---
+import { youtubeChannel, facebookPage, instagramPage, schoolSite, type NavItem } from '../data/site';
+
+export interface Props {
+  items: NavItem[];
+}
+
+const { items } = Astro.props;
+
+const podcastLinks = items.filter(i => ['/', '/episodes', '/rubrics', '/schedule'].includes(i.href));
+const aboutLinks = items.filter(i => ['/team', '/guests', '/contact'].includes(i.href));
+---
+<footer>
+  <div class="circles" aria-hidden="true">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-title-section">
+        <div class="footer-brand-name">32 Подкаст</div>
+        <p>Училищно радио "32 Подкаст" — гласът на 32. СУИЧЕ "Св. Климент Охридски". Подкасти, видео предавания и много настроение.</p>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4>Подкаст</h4>
+          {podcastLinks.map(i => <a href={i.href}>{i.label}</a>)}
+        </div>
+        <div class="footer-col">
+          <h4>За нас</h4>
+          {aboutLinks.map(i => <a href={i.href}>{i.label}</a>)}
+          <a href={youtubeChannel} target="_blank">YouTube</a>
+        </div>
+        <div class="footer-col">
+          <h4>Училище</h4>
+          <a href={schoolSite} target="_blank">32. СУИЧЕ</a>
+          <a href={`${schoolSite}/новини/`} target="_blank">Новини</a>
+          <a href={`${schoolSite}/прием/`} target="_blank">Прием</a>
+          <div class="social-links" style="margin-top:0.75rem;">
+            <a href={facebookPage} target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href={youtubeChannel} target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href={instagramPage} target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright 2024 - 2026 &copy; Всички права запазени</p>
+        <p>32. СУИЧЕ "Св. Климент Охридски"</p>
+      </div>
+    </div>
+  </div>
+</footer>

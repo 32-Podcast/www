@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import RubricCard from '../components/RubricCard.astro';
+import { youtubeUrl } from '../data/episodes';
+
+const rubrics = [
+  {
+    icon: 'comments',
+    title: 'Междучасие',
+    description: 'Рубриката, в която каним ученици и/или учители, които провеждат разговор върху актуална, засягаща много хора тема.',
+  },
+  {
+    icon: 'star',
+    title: 'SPECIAL',
+    description: 'Специалните епизоди на подкаста, в които ви запознаваме с личности като директора на училището.',
+    href: youtubeUrl('KuoooDT9_vo'),
+    ctaLabel: 'Гледай епизода',
+  },
+];
+---
+<BaseLayout title="Рубрики" description="Рубриките на 32 Подкаст — Междучасие и SPECIAL. Разговори с ученици, учители и специални гости." activeNav="/rubrics">
+  <div class="container">
+    <PageHeader title="Нашите рубрики" current="Рубрики" description="Две рубрики, които ще ви потопят в света на 32. СУИЧЕ" />
+  </div>
+
+  <div class="container">
+    <section style="padding-top:0;">
+      <div class="rubrics-grid reveal">
+        {rubrics.map(r => (
+          <RubricCard
+            icon={r.icon}
+            title={r.title}
+            description={r.description}
+            href={r.href}
+            ctaLabel={r.ctaLabel}
+          />
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

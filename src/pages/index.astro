@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EpisodeCard from '../components/EpisodeCard.astro';
+import TeamCard from '../components/TeamCard.astro';
+import YouTubeCTA from '../components/YouTubeCTA.astro';
+import { latestEpisodes, episodes } from '../data/episodes';
+import { team } from '../data/team';
+import { youtubeChannel } from '../data/site';
+
+const latest = latestEpisodes(3);
+const stats = {
+  episodes: episodes.length,
+  team: team.length,
+  rubrics: 2,
+};
+---
+<BaseLayout title="32 Подкаст | 32. СУИЧЕ &quot;Св. Климент Охридски&quot;" activeNav="/">
+  <section class="hero" id="header">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="section-tag" style="margin-bottom:0.75rem;">
+            <span style="display:inline-block;width:7px;height:7px;background:var(--color-coral);border-radius:50%;margin-right:5px;animation:pulse 2s infinite;"></span>
+            На живо от 32. СУИЧЕ
+          </div>
+          <h1>
+            Училищно радио<br>
+            <span class="highlight">"32 Подкаст"</span>
+          </h1>
+          <p class="hero-subtitle">
+            Твоят глас в ефира! Новини, интервюта, музика и забавни рубрики —
+            всичко, което прави училищния живот цветен и вдъхновяващ.
+          </p>
+        </div>
+        <div class="hero-cta">
+          <a href={youtubeChannel} target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fab fa-youtube"></i> Гледай на YouTube
+          </a>
+          <a href="/episodes" class="btn btn-ghost">
+            Всички епизоди <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="visualizer" aria-hidden="true">
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="stats-grid reveal" id="statsGrid">
+      <div class="stat-item">
+        <div class="number" data-target={stats.episodes}>0</div>
+        <div class="label">Епизода</div>
+      </div>
+      <div class="stat-item">
+        <div class="number" data-target={stats.team}>0</div>
+        <div class="label">Членове на екипа</div>
+      </div>
+      <div class="stat-item">
+        <div class="number" data-target={stats.rubrics}>0</div>
+        <div class="label">Рубрики</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="reveal" style="padding:0;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <div class="section-tag">Какво предлагаме</div>
+        <div class="section-title">Нашите рубрики</div>
+        <p class="section-desc" style="margin:0 auto;">Всяка рубрика носи различен поглед върху училищния живот</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="ficon"><i class="fas fa-comments"></i></div>
+          <div class="finfo">
+            <h4>Междучасие</h4>
+            <p>Рубриката, в която каним ученици и/или учители, които провеждат разговор върху актуална, засягаща много хора тема.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="ficon"><i class="fas fa-star"></i></div>
+          <div class="finfo">
+            <h4>SPECIAL</h4>
+            <p>Специалните епизоди на подкаста, в които ви запознаваме с личности като директора на училището.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="reveal" style="padding:0;">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&h=600&fit=crop" alt="Радио студио">
+          <div class="floating-card">
+            <div class="ficon"><i class="fas fa-microphone-lines"></i></div>
+            <div class="finfo">
+              <h4>2024</h4>
+              <span>Година на стартиране</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-tag">За подкаста</div>
+          <h3>Дигитално преживяване за цялото училище</h3>
+          <p>"32 Подкаст" е училищното радио на 32. СУИЧЕ "Св. Климент Охридски" — мястото, където учениците дават глас на своите идеи, таланти и страсти.</p>
+          <p>Очаквай интервюта с ученици, учители и личности от света на изкуството, спорта, науката и технологиите. Полезни съвети, мотивиращи истории и много настроение!</p>
+          <div class="features-list" style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:1.5rem;">
+            <div class="feature-item" style="background:none;padding:0;border:none;">
+              <i class="fas fa-comments" style="width:26px;height:26px;background:var(--coral-bg);color:var(--color-coral);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;"></i>
+              <span style="font-weight:500;font-size:0.85rem;">Междучасие</span>
+            </div>
+            <div class="feature-item" style="background:none;padding:0;border:none;">
+              <i class="fas fa-star" style="width:26px;height:26px;background:var(--coral-bg);color:var(--color-coral);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;"></i>
+              <span style="font-weight:500;font-size:0.85rem;">SPECIAL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="team-section reveal">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <div class="section-tag">Екип</div>
+        <div class="section-title">Хората зад микрофона</div>
+        <p class="section-desc" style="margin:0 auto;">Талантливи ученици, които правят всяко предаване незабравимо</p>
+      </div>
+      <div class="team-grid">
+        {team.map(m => <TeamCard member={m} />)}
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="reveal" style="text-align:center;">
+      <div style="margin-bottom:2.5rem;">
+        <div class="section-tag">YouTube канал</div>
+        <div class="section-title">Гледай ни онлайн</div>
+        <p class="section-desc" style="margin:0 auto;">Всички епизоди на едно място</p>
+      </div>
+      <YouTubeCTA />
+    </section>
+  </div>
+
+  <script src="https://apis.google.com/js/platform.js" is:inline></script>
+
+  <div class="container">
+    <section class="reveal">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <div class="section-tag">Последни епизоди</div>
+        <div class="section-title">Най-новите предавания</div>
+        <p class="section-desc" style="margin:0 auto;">Започни от тук, ако си нов в подкаста</p>
+      </div>
+      <div class="episodes-grid">
+        {latest.map(ep => <EpisodeCard episode={ep} />)}
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="/episodes" class="btn btn-primary">Виж всички епизоди <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  (function() {
+    var grid = document.getElementById('statsGrid');
+    if (!grid) return;
+    var numbers = grid.querySelectorAll('.number');
+    var played = false;
+    if (!('IntersectionObserver' in window)) {
+      numbers.forEach(function(n) { n.textContent = n.getAttribute('data-target'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting || played) return;
+        played = true;
+        numbers.forEach(function(num) {
+          var t = parseInt(num.getAttribute('data-target'), 10) || 0;
+          var c = 0;
+          var inc = t / 50;
+          var timer = setInterval(function() {
+            c += inc;
+            if (c >= t) { num.textContent = t; clearInterval(timer); }
+            else { num.textContent = Math.floor(c); }
+          }, 30);
+        });
+      });
+    }, { threshold: 0.5 });
+    obs.observe(grid);
+  })();
+</script>

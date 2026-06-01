@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+  current: string;
+  description?: string;
+}
+
+const { title, current, description = '' } = Astro.props;
+---
+<div class="page-header">
+  <nav class="breadcrumbs" aria-label="breadcrumb">
+    <a href="/">Начало</a>
+    <span class="sep">/</span>
+    <span class="current">{current}</span>
+  </nav>
+  <h1>{title}</h1>
+  {description && <p>{description}</p>}
+</div>

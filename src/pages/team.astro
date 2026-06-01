@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import TeamCard from '../components/TeamCard.astro';
+import { team } from '../data/team';
+---
+<BaseLayout title="Екип" description="Запознай се с екипа на 32 Подкаст — учениците, които създават съдържанието." activeNav="/team">
+  <div class="container">
+    <PageHeader title="Нашият екип" current="Екип" description="Талантливи ученици, които правят всяко предаване незабравимо" />
+  </div>
+
+  <div class="container">
+    <div class="team-section reveal" style="margin-top:0;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <div class="section-tag">Екип</div>
+        <div class="section-title">Хората зад микрофона</div>
+        <p class="section-desc" style="margin:0 auto;">Четирима ученици, една обща страст — да разказват истории</p>
+      </div>
+      <div class="team-grid" style="grid-template-columns:1fr;max-width:800px;margin:0 auto;">
+        {team.map(m => <TeamCard member={m} size="large" />)}
+      </div>
+      <div style="text-align:center;margin-top:3rem;">
+        <p style="color:var(--color-paper);opacity:0.6;margin-bottom:1rem;max-width:450px;margin-left:auto;margin-right:auto;">
+          Искаш да станеш част от екипа? Винаги търсим нови таланти!
+        </p>
+        <a href="/contact" class="btn" style="background:var(--color-paper);color:var(--color-ink);">
+          <i class="fas fa-handshake"></i> Свържи се с нас
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

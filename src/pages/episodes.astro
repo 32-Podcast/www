@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import EpisodeCard from '../components/EpisodeCard.astro';
+import { episodes } from '../data/episodes';
+---
+<BaseLayout title="Всички епизоди" description="Всички епизоди на 32 Подкаст — гледай предаванията на училищното радио." activeNav="/episodes">
+  <div class="container">
+    <PageHeader title="Всички епизоди" current="Епизоди" description="Прегледай всички наши предавания и избери своето любимо" />
+  </div>
+
+  <div class="container">
+    <section style="padding-top:0;">
+      <div class="episodes-grid">
+        {episodes
+          .slice()
+          .sort((a, b) => a.order - b.order)
+          .map(ep => <EpisodeCard episode={ep} />)
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

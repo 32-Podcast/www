@@ -1,0 +1,19 @@
+---
+import { type TeamMember } from '../data/team';
+
+export interface Props {
+  member: TeamMember;
+  size?: 'default' | 'large';
+}
+
+const { member, size = 'default' } = Astro.props;
+const avatarStyle = size === 'large' ? 'width:80px;height:80px;font-size:1.7rem;' : '';
+const nameStyle = size === 'large' ? 'font-size:1.1rem;' : '';
+---
+<article class="team-card" style={size === 'large' ? 'padding:2.5rem;' : ''}>
+  <div class="avatar" style={avatarStyle}>{member.initials}</div>
+  <h4 style={nameStyle}>{member.name}</h4>
+  <div class="role">{member.role}</div>
+  <div class="class">{member.class}</div>
+  {member.bio && <p class="bio">{member.bio}</p>}
+</article>

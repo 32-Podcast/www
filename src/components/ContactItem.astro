@@ -1,0 +1,21 @@
+---
+export interface Props {
+  icon: string;
+  iconBrand?: boolean;
+  title: string;
+  body: string;
+  href?: string;
+  external?: boolean;
+}
+
+const { icon, iconBrand = false, title, body, href, external = false } = Astro.props;
+const Tag = href ? 'a' : 'div';
+const extra = external ? { target: '_blank', rel: 'noopener' } : {};
+---
+<div class="contact-item">
+  <div class="icon"><i class={iconBrand ? `fab fa-${icon}` : `fas fa-${icon}`}></i></div>
+  <div class="details">
+    <h4>{title}</h4>
+    <Tag href={href} {...extra}>{body}</Tag>
+  </div>
+</div>

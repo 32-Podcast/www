@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactItem from '../components/ContactItem.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { youtubeChannel } from '../data/site';
+---
+<BaseLayout title="Контакти" description="Свържи се с екипа на 32 Подкаст." activeNav="/contact">
+  <div class="container">
+    <PageHeader title="Свържи се с нас" current="Контакти" description="Имаш идея, въпрос или искаш да си гост? Пиши ни!" />
+  </div>
+
+  <div class="container">
+    <section style="padding-top:0;">
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <div class="section-tag">Контакти</div>
+          <h3>Нека поговорим</h3>
+          <p>Ние обичаме да чуваме от вас! Независимо дали имаш идея за рубрика, искаш да станеш гост, или просто искаш да споделиш мнението си — винаги сме на линия.</p>
+          <ContactItem icon="envelope" title="Имейл" body="podcast@school32.com" href="mailto:podcast@school32.com" />
+          <ContactItem icon="youtube" iconBrand={true} title="YouTube канал" body="@schoolpodcast32" href={youtubeChannel} external />
+          <ContactItem icon="school" title="Училище" body='32. СУИЧЕ "Св. Климент Охридски"' />
+          <ContactItem icon="clock" title="Работно време" body="Понеделник — Петък, 12:00 — 13:00 ч." />
+          <SocialLinks />
+        </div>
+        <div class="contact-form">
+          <h3>Изпрати съобщение</h3>
+          <form onsubmit="arguments[0].preventDefault();alert('Благодарим ти! Съобщението е изпратено успешно.');">
+            <div class="form-group">
+              <label for="name">Име</label>
+              <input type="text" id="name" name="name" placeholder="Твоето име" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Имейл</label>
+              <input type="email" id="email" name="email" placeholder="tvoq@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Тема</label>
+              <select id="subject" name="subject" required>
+                <option value="">Избери тема</option>
+                <option value="idea">Предложи идея за рубрика</option>
+                <option value="guest">Искам да съм гост</option>
+                <option value="feedback">Обратна връзка</option>
+                <option value="question">Въпрос</option>
+                <option value="other">Друго</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Съобщение</label>
+              <textarea id="message" name="message" placeholder="Разкажи ни повече..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:0.75rem 1.5rem;">
+              <i class="fas fa-paper-plane"></i> Изпрати съобщение
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

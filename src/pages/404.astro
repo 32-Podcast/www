@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="404 — Страницата не е намерена" description="Страницата не е намерена.">
+  <div class="container">
+    <div class="page-404">
+      <h1>404</h1>
+      <h2>Грешка в ефира</h2>
+      <p>Тази страница не съществува или е преместена. Върни се на началната страница и продължи напред!</p>
+      <div style="display:flex;gap:1rem;margin-top:0.5rem;">
+        <a href="/" class="btn btn-primary"><i class="fas fa-home"></i> Начало</a>
+        <a href="/episodes" class="btn btn-ghost">Епизоди</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

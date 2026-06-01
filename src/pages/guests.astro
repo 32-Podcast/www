@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+<BaseLayout title="Гости" description="Гостите на 32 Подкаст — учители, ученици и специални личности." activeNav="/guests">
+  <div class="container">
+    <PageHeader title="Нашите гости" current="Гости" description="Интересни личности, които споделиха своите истории с нас" />
+  </div>
+
+  <div class="container">
+    <section style="padding-top:0;">
+      <div style="text-align:center;margin-bottom:2.5rem;" class="reveal">
+        <div class="section-tag">Гости</div>
+        <div class="section-title">Личности в ефира</div>
+        <p class="section-desc" style="margin:0 auto;">Учители, ученици, артисти, спортисти и учени — всички са добре дошли</p>
+      </div>
+      <div class="guests-grid reveal">
+        <div class="guests-empty">
+          <i class="fas fa-users"></i>
+          <p>Информацията предстои...</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:3rem;" class="reveal">
+        <div style="background:var(--color-card);border:1px solid var(--color-muted);border-radius:24px;padding:2.5rem;max-width:600px;margin:0 auto;">
+          <div style="width:52px;height:52px;background:var(--color-coral);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:white;font-size:1.3rem;">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--color-ink);margin-bottom:0.5rem;">Искаш да си наш гост?</h3>
+          <p style="color:var(--color-ink);opacity:0.6;margin-bottom:1.25rem;">
+            Ако имаш интересна история или просто искаш да споделиш нещо — свържи се с нас!
+          </p>
+          <a href="/contact" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Свържи се с нас
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

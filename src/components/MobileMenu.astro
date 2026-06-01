@@ -1,0 +1,24 @@
+---
+import { type NavItem } from '../data/site';
+
+export interface Props {
+  items: NavItem[];
+  activeNav?: string;
+}
+
+const { items, activeNav = '' } = Astro.props;
+---
+<>
+  <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+  <aside class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <span style="font-weight:700;font-size:1.1rem;">Меню</span>
+      <button class="mobile-menu-close" onclick="toggleMobileMenu()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--color-ink)">&times;</button>
+    </div>
+    <nav>
+      {items.map(item => (
+        <a href={item.href} class={item.href === activeNav ? 'active' : ''}>{item.label}</a>
+      ))}
+    </nav>
+  </aside>
+</>

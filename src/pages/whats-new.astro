@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { youtubeChannel } from '../data/site';
+
+const updates = [
+  {
+    icon: 'bullhorn',
+    tag: 'Ново',
+    title: 'Нов дизайн на сайта',
+    body: 'Подкаст "32 Подкаст" вече има нов модерен сайт, вдъхновен от Zen Browser. По-бърз, по-красив и по-лесен за навигация!',
+    date: '1 юни 2026',
+    cta: null,
+  },
+  {
+    icon: 'star',
+    tag: 'Нов епизод',
+    title: 'Премиера: Среща с директора',
+    body: 'Първото интервю с директора на 32. СУИЧЕ за новата учебна програма и проектите на училището.',
+    date: '15 май 2026',
+    cta: { label: 'Гледай', href: youtubeChannel },
+  },
+  {
+    icon: 'calendar-check',
+    tag: 'Събитие',
+    title: 'Открит ден на радиото',
+    body: 'На 20 юни ще проведем открит ден, в който всеки ученик може да опита да води предаване!',
+    date: '20 юни 2026',
+    cta: null,
+  },
+  {
+    icon: 'trophy',
+    tag: 'Постижение',
+    title: '1000 абонати в YouTube',
+    body: 'Благодарим на всички, които ни подкрепят! 1000 абонати в YouTube канала ни — това е само началото.',
+    date: '10 май 2026',
+    cta: null,
+  },
+];
+---
+<BaseLayout title="Какво ново" description="Новини и актуализации от 32 Подкаст." activeNav="">
+  <div class="container">
+    <PageHeader title="Какво ново" current="Какво ново" description='Последни актуализации и събития от света на "32 Подкаст"' />
+  </div>
+
+  <div class="container">
+    <section style="padding-top:0;">
+      <div class="episodes-list reveal">
+        {updates.map(u => (
+          <article class="episode-row">
+            <div class="episode-thumb"><i class={`fas fa-${u.icon}`}></i></div>
+            <div class="episode-info">
+              <span class="episode-tag">{u.tag}</span>
+              <h4>{u.title}</h4>
+              <p>{u.body}</p>
+              <div class="episode-meta"><span><i class="far fa-calendar"></i> {u.date}</span></div>
+            </div>
+            {u.cta && (
+              <div class="episode-actions">
+                <a href={u.cta.href} target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;">
+                  <i class="fas fa-play"></i> {u.cta.label}
+                </a>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

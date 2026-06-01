@@ -1,0 +1,23 @@
+---
+export interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  href?: string;
+  ctaLabel?: string;
+}
+
+const { icon, title, description, href, ctaLabel } = Astro.props;
+---
+<article class="rubric-card">
+  <div class="rubric-icon"><i class={`fas fa-${icon}`}></i></div>
+  <h4>{title}</h4>
+  <p>{description}</p>
+  {href && ctaLabel && (
+    <div class="rubric-actions">
+      <a href={href} target="_blank" rel="noopener" class="btn btn-primary" style="gap:0.4rem;">
+        <i class="fab fa-youtube"></i> {ctaLabel}
+      </a>
+    </div>
+  )}
+</article>
