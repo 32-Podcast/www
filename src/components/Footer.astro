@@ -1,5 +1,5 @@
 ---
-import { youtubeChannel, facebookPage, instagramPage, schoolSite, githubRepo, githubOrg, type NavItem } from '../data/site';
+import { youtubeChannel, facebookPage, instagramPage, schoolSite, githubOrg, type NavItem } from '../data/site';
 
 export interface Props {
   items: NavItem[];
@@ -46,12 +46,7 @@ const aboutLinks = items.filter(i => ['/team', '/guests', '/contact'].includes(i
       </div>
       <div class="footer-bottom">
         <p>Copyright 2024 - 2026 &copy; Всички права запазени</p>
-        <div class="footer-meta">
-          <a href={githubRepo} target="_blank" rel="noopener" class="source-link" aria-label="Source on GitHub">
-            <i class="fab fa-github"></i> Source
-          </a>
-          <span>32. СУИЧЕ "Св. Климент Охридски"</span>
-        </div>
+        <p>32. СУИЧЕ "Св. Климент Охридски"</p>
       </div>
     </div>
   </div>

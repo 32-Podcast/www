@@ -474,11 +474,6 @@ footer { background: #2e2e2e; color: #f2f0e3; margin-top: 4rem; overflow: hidden
 .footer-bottom { padding-top: 0.8rem; margin-top: 0.8rem; border-top: 1px solid rgba(242,240,227,0.08); display: flex; flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
 @media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
 .footer-bottom p { color: rgba(242,240,227,0.35); font-size: 0.72rem; }
-.footer-meta { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-.footer-meta span { color: rgba(242,240,227,0.35); font-size: 0.72rem; }
-.source-link { display: inline-flex; align-items: center; gap: 0.4rem; color: rgba(242,240,227,0.45); font-size: 0.72rem; text-decoration: none; transition: color .2s; }
-.source-link:hover { color: #f76f53; }
-.source-link i { font-size: 0.95rem; }
 
 /* ============================================
    SCROLL ANIMATIONS
