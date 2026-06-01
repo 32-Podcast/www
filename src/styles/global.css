@@ -204,8 +204,8 @@ a:hover { color: var(--color-coral-light); }
 .hero-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
 @media (min-width: 768px) { .hero-inner { gap: 2rem; } }
 .hero-text { max-width: 800px; text-align: center; }
-.hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 600; color: var(--color-ink); line-height: 0.9; margin-bottom: 1rem; }
-.hero h1 .highlight { font-family: var(--font-brand); color: var(--color-coral); font-weight: 400; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 600; color: var(--color-ink); line-height: 1.05; margin-bottom: 1.5rem; }
+.hero h1 .highlight { font-family: var(--font-brand); color: var(--color-coral); font-weight: 400; display: inline-block; }
 .hero-subtitle { font-size: clamp(0.95rem, 2vw, 1.15rem); color: var(--color-ink); opacity: 0.6; max-width: 550px; line-height: 1.7; margin-bottom: 0.5rem; }
 .hero-cta { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; }
 @media (min-width: 768px) { .hero-cta { flex-direction: row; gap: 1.5rem; } }
@@ -282,7 +282,7 @@ section { padding: 4rem 0; }
    PAGE HEADER
    ============================================ */
 .page-header { padding: 3rem 0 1.5rem; text-align: center; }
-.page-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 600; color: var(--color-ink); line-height: 0.9; margin-bottom: 0.75rem; }
+.page-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 600; color: var(--color-ink); line-height: 1.15; margin-bottom: 0.75rem; }
 .page-header p { color: var(--color-ink); opacity: 0.6; font-size: 1rem; max-width: 450px; margin: 0 auto; }
 .breadcrumbs { display: flex; justify-content: center; gap: 0.35rem; margin-bottom: 1rem; font-size: 0.8rem; color: var(--color-ink); opacity: 0.4; }
 .breadcrumbs a { color: var(--color-ink); opacity: 0.6; }
