@@ -9,7 +9,7 @@
 [![Tailwind](https://img.shields.io/badge/Tailwind-v4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com)
 
-🌐 [podcast.school32.com](https://podcast.school32.com) · [📺 YouTube](https://www.youtube.com/@schoolpodcast32) · [📸 Instagram](https://www.instagram.com/32.podcast/) · [📘 Facebook](https://www.facebook.com/school32.bg/)
+🌐 [www-6wp.pages.dev](https://www-6wp.pages.dev/) · [📺 YouTube](https://www.youtube.com/@schoolpodcast32) · [📸 Instagram](https://www.instagram.com/32.podcast/) · [📘 Facebook](https://www.facebook.com/school32.bg/)
 
 ---
 
@@ -39,7 +39,6 @@
 | **Tailwind CSS** | `v4` (via `@tailwindcss/vite`) | Стилизиране (no config, `@theme` tokens) |
 | **Font Awesome** | `6.5.1` (CDN) | Икони |
 | **Cloudflare Pages** | — | Хостинг и CDN (auto-deploy от `main`) |
-| **GitHub Pages** | — | Backup preview при `https://32-podcast.github.io/www/` |
 
 Шрифтове: **Kometa**, **Kometa Unicase** (български дисплей), **Junicode** (serif/italic).
 
