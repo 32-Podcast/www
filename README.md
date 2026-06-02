@@ -86,26 +86,6 @@ public/
 
 ---
 
-## 🌐 Деплой
-
-### Cloudflare Pages (primary)
-
-- Свързан с `32-Podcast/www` repo
-- Auto-deploy при всеки push в `main`
-- Build команда: `npm run build`
-- Output: `dist`
-- Production URL: `https://www-6wp.pages.dev`
-- Custom domain: `https://podcast.school32.com` (CNAME → `www-6wp.pages.dev`)
-
-### GitHub Pages (backup preview)
-
-- Workflow: `.github/workflows/deploy.yml`
-- Triggers: push to `main`
-- URL: `https://32-podcast.github.io/www/`
-- Astro `base` path е автоматично `/www` когато `GITHUB_PAGES=true`
-
----
-
 ## 🎨 Теми
 
 Дефинирани в `src/styles/global.css` чрез `@theme` и `[data-theme="..."]` overrides:
@@ -117,19 +97,6 @@ public/
 | **catppuccin** | `#1e1e2e` | `#cdd6f4` | `#cba6f7` (lavender) |
 
 Изборът се пази в `localStorage`, с fallback на `prefers-color-scheme`. Inline script в `<head>` прилага темата **преди** първия paint, за да няма FOUC.
-
----
-
-## 📝 Добавяне на епизод
-
-1. Отвори `src/data/episodes.ts`
-2. Добави нов обект в масива (incremental `order`, реален `date`, избери `rubric`):
-
-   ```ts
-   { id: 'YouTubeVideoId', order: 13, rubric: 'Междучасие', title: 'Заглавие', date: '2026-06-15' },
-   ```
-
-3. `commit` + `push` → Cloudflare Pages auto-deploy-ва за ~30 сек.
 
 ---
 
