@@ -11,7 +11,7 @@ const label = episodeLabel(episode.order);
 const date = formatDate(episode.date);
 const isSpecial = episode.rubric === 'SPECIAL';
 ---
-<article class="episode-card reveal">
+<article class="episode-card reveal" data-date={episode.date}>
   <a href={url} target="_blank" class="episode-thumb-link" rel="noopener" aria-label={label}>
     <div class="episode-thumb">
       <img src={thumb} alt="" loading="lazy">

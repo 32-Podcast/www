@@ -4,11 +4,9 @@ import PageHeader from '../components/PageHeader.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
 import { episodes } from '../data/episodes';
 
-const sort = Astro.url.searchParams.get('sort') === 'oldest' ? 'oldest' : 'newest';
-const sorted = [...episodes].sort((a, b) => {
-  const diff = new Date(a.date).getTime() - new Date(b.date).getTime();
-  return sort === 'oldest' ? diff : -diff;
-});
+const sortedNewest = [...episodes].sort((a, b) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 ---
 <BaseLayout title="Всички епизоди" description="Всички епизоди на 32 Подкаст — гледай предаванията на училищното радио." activeNav="/episodes">
   <div class="container">
@@ -19,20 +17,58 @@ const sorted = [...episodes].sort((a, b) => {
     <section style="padding-top:0;">
       <div class="episodes-filter reveal">
         <span class="filter-label">Подреди по:</span>
-        <div class="filter-group" role="tablist">
-          <a href="/episodes" class:list={["filter-btn", sort === 'newest' && "active"]} role="tab" aria-selected={sort === 'newest'}>
+        <div class="filter-group" role="tablist" data-filter-group>
+          <button type="button" data-sort="newest" class="filter-btn active" role="tab" aria-selected="true">
             <i class="fas fa-arrow-down-wide-short"></i> Нови първо
-          </a>
-          <a href="/episodes?sort=oldest" class:list={["filter-btn", sort === 'oldest' && "active"]} role="tab" aria-selected={sort === 'oldest'}>
+          </button>
+          <button type="button" data-sort="oldest" class="filter-btn" role="tab" aria-selected="false">
             <i class="fas fa-arrow-up-wide-short"></i> Стари първо
-          </a>
+          </button>
         </div>
         <span class="filter-count">{episodes.length} епизода</span>
       </div>
 
-      <div class="episodes-grid">
-        {sorted.map(ep => <EpisodeCard episode={ep} />)}
+      <div class="episodes-grid" data-grid>
+        {sortedNewest.map(ep => <EpisodeCard episode={ep} />)}
       </div>
     </section>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function() {
+    var group = document.querySelector('[data-filter-group]');
+    var grid = document.querySelector('[data-grid]');
+    if (!group || !grid) return;
+
+    var cards = Array.prototype.slice.call(grid.children);
+
+    function applySort(mode) {
+      var sorted = cards.slice().sort(function(a, b) {
+        var da = new Date(a.getAttribute('data-date')).getTime();
+        var db = new Date(b.getAttribute('data-date')).getTime();
+        return mode === 'oldest' ? da - db : db - da;
+      });
+      var frag = document.createDocumentFragment();
+      sorted.forEach(function(c) { frag.appendChild(c); });
+      grid.appendChild(frag);
+
+      group.querySelectorAll('button[data-sort]').forEach(function(b) {
+        var on = b.getAttribute('data-sort') === mode;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+
+      if (history.replaceState) history.replaceState(null, '', '#' + mode);
+    }
+
+    group.addEventListener('click', function(e) {
+      var btn = e.target.closest('button[data-sort]');
+      if (!btn) return;
+      applySort(btn.getAttribute('data-sort'));
+    });
+
+    var initial = window.location.hash.replace('#', '');
+    if (initial === 'oldest' || initial === 'newest') applySort(initial);
+  })();
+</script>
