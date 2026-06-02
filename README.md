@@ -86,29 +86,6 @@ public/
 
 ---
 
-## 🚀 Стартиране
-
-Изисква **Node.js ≥ 20**.
-
-```bash
-# Инсталиране на зависимости
-npm install
-
-# Dev сървър (http://localhost:4321)
-npm run dev
-
-# Production build → ./dist
-npm run build
-
-# Preview на production build
-npm run preview
-
-# TypeScript + Astro проверка
-npm run check
-```
-
----
-
 ## 🌐 Деплой
 
 ### Cloudflare Pages (primary)
