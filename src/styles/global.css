@@ -99,6 +99,26 @@
     --color-muted: color-mix(in srgb, #cdd6f4 8%, transparent);
     --color-subtle: color-mix(in srgb, #cdd6f4 4%, transparent);
   }
+
+  :root[data-theme='gruvbox'] {
+    --color-paper: #282828;
+    --color-ink: #ebdbb2;
+    --color-coral: #fe8019;
+    --color-coral-light: #fabd2f;
+    --color-card: #3c3836;
+    --color-muted: color-mix(in srgb, #ebdbb2 8%, transparent);
+    --color-subtle: color-mix(in srgb, #ebdbb2 4%, transparent);
+  }
+
+  :root[data-theme='rose-pine'] {
+    --color-paper: #191724;
+    --color-ink: #e0def4;
+    --color-coral: #eb6f92;
+    --color-coral-light: #f6c177;
+    --color-card: #1f1d2e;
+    --color-muted: color-mix(in srgb, #e0def4 8%, transparent);
+    --color-subtle: color-mix(in srgb, #e0def4 4%, transparent);
+  }
 }
 
 /* ============================================
@@ -451,6 +471,8 @@ section { padding: 4rem 0; }
 footer { background: #2e2e2e; color: #f2f0e3; margin-top: 4rem; overflow: hidden; position: relative; }
 :root[data-theme='dark'] footer { background: #1a1a1a; color: #ddd9c8; }
 :root[data-theme='catppuccin'] footer { background: #11111b; color: #cdd6f4; }
+:root[data-theme='gruvbox'] footer { background: #1d2021; color: #ebdbb2; }
+:root[data-theme='rose-pine'] footer { background: #11111b; color: #e0def4; }
 @media (min-width: 1024px) { footer { margin-top: 0; } }
 .footer-inner { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 2rem; padding: 1.5rem 0; position: relative; z-index: 1; }
 @media (min-width: 1024px) { .footer-inner { padding: 3rem 0 2rem; flex-direction: row; } }
@@ -459,6 +481,8 @@ footer { background: #2e2e2e; color: #f2f0e3; margin-top: 4rem; overflow: hidden
 .footer-brand-name { font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 700; color: #f2f0e3; line-height: 1; font-family: var(--font-brand); }
 :root[data-theme='dark'] .footer-brand-name { color: #ddd9c8; }
 :root[data-theme='catppuccin'] .footer-brand-name { color: #cdd6f4; }
+:root[data-theme='gruvbox'] .footer-brand-name { color: #ebdbb2; }
+:root[data-theme='rose-pine'] .footer-brand-name { color: #e0def4; }
 .footer-title-section p { color: rgba(242,240,227,0.5); font-size: 0.82rem; line-height: 1.6; max-width: 500px; }
 @media (min-width: 1024px) { .footer-title-section p { margin: 0; } }
 .footer-links-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; width: 100%; max-width: 1000px; text-align: center; }
