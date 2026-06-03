@@ -3,10 +3,9 @@ import { youtubeChannel } from '../data/site';
 
 export interface Props {
   description?: string;
-  showSubscribe?: boolean;
 }
 
-const { description = 'Абонирай се за нашия YouTube канал, за да не пропуснеш нито един епизод. Нови предавания всяка седмица!', showSubscribe = true } = Astro.props;
+const { description = 'Абонирай се за нашия YouTube канал, за да не пропуснеш нито един епизод. Нови предавания всяка седмица!' } = Astro.props;
 ---
 <div class="youtube-card">
   <div class="youtube-logo"><i class="fab fa-youtube"></i></div>
@@ -15,7 +14,4 @@ const { description = 'Абонирай се за нашия YouTube канал,
   <a href={youtubeChannel} target="_blank" rel="noopener" class="youtube-btn">
     <i class="fab fa-youtube"></i> Посети канала
   </a>
-  {showSubscribe && (
-    <div class="g-ytsubscribe" data-channel="schoolpodcast32" data-layout="full" data-count="default" style="margin-top:1rem;display:inline-flex;"></div>
-  )}
 </div>
