@@ -101,13 +101,13 @@
   }
 
   :root[data-theme='gruvbox'] {
-    --color-paper: #282828;
-    --color-ink: #ebdbb2;
-    --color-coral: #fe8019;
-    --color-coral-light: #fabd2f;
-    --color-card: #3c3836;
-    --color-muted: color-mix(in srgb, #ebdbb2 8%, transparent);
-    --color-subtle: color-mix(in srgb, #ebdbb2 4%, transparent);
+    --color-paper: #fbf1c7;
+    --color-ink: #3c3836;
+    --color-coral: #ffa200;
+    --color-coral-light: #ffb84d;
+    --color-card: #ebdbb2;
+    --color-muted: color-mix(in srgb, #3c3836 8%, transparent);
+    --color-subtle: color-mix(in srgb, #3c3836 4%, transparent);
   }
 
   :root[data-theme='rose-pine'] {
@@ -471,7 +471,7 @@ section { padding: 4rem 0; }
 footer { background: #2e2e2e; color: #f2f0e3; margin-top: 4rem; overflow: hidden; position: relative; }
 :root[data-theme='dark'] footer { background: #1a1a1a; color: #ddd9c8; }
 :root[data-theme='catppuccin'] footer { background: #11111b; color: #cdd6f4; }
-:root[data-theme='gruvbox'] footer { background: #1d2021; color: #ebdbb2; }
+:root[data-theme='gruvbox'] footer { background: #3c3836; color: #ebdbb2; }
 :root[data-theme='rose-pine'] footer { background: #11111b; color: #e0def4; }
 @media (min-width: 1024px) { footer { margin-top: 0; } }
 .footer-inner { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 2rem; padding: 1.5rem 0; position: relative; z-index: 1; }
