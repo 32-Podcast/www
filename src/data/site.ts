@@ -19,6 +19,7 @@ export const instagramPage = 'https://www.instagram.com/32.podcast/';
 export const schoolSite = 'https://school32.com';
 export const githubRepo = 'https://github.com/32-Podcast/www';
 export const githubOrg = 'https://github.com/32-Podcast';
+export const spotifyShow = 'https://open.spotify.com/show/7hJGzyMPmoClf3vthy2GB6';
 export const contactEmail = 'school32.podcast32@school32.com';
 export const schoolAddress = 'Sofia Center, Hristo Botev Blvd 63, 1303 Sofia, Bulgaria';
 export const schoolAddressMapsUrl = 'https://www.google.com/maps/search/?api=1&query=Sofia+Center+Hristo+Botev+Blvd+63+1303+Sofia+Bulgaria';
