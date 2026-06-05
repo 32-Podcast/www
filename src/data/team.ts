@@ -4,6 +4,8 @@ export interface TeamMember {
   role: string;
   class: string;
   bio: string;
+  instagram?: string;
+  website?: string;
 }
 
 export const team: TeamMember[] = [
@@ -13,6 +15,7 @@ export const team: TeamMember[] = [
     role: 'Монтажист и оператор',
     class: '10. г клас',
     bio: 'Грижи се за монтажа, заснемането и звука. Поддържа и обновява сайта на подкаста.',
+    instagram: 'https://www.instagram.com/kartofos/',
   },
   {
     initials: 'ПС',
@@ -20,6 +23,8 @@ export const team: TeamMember[] = [
     role: 'Оператор и developer',
     class: '10. г клас',
     bio: 'Оператор и звукорежисьор. Отговаря за брандинга, графичния дизайн и социалните медии, както и за разработката на сайта.',
+    instagram: 'https://www.instagram.com/sladkaroww/',
+    website: 'https://sladkaroww.neocities.org',
   },
   {
     initials: 'НТ',
@@ -27,6 +32,7 @@ export const team: TeamMember[] = [
     role: 'Водещ',
     class: '9. г клас',
     bio: 'Водещ и редактор. Гласът зад микрофона в повечето епизоди.',
+    instagram: 'https://www.instagram.com/nedev1d/',
   },
   {
     initials: 'КЛ',
@@ -34,5 +40,6 @@ export const team: TeamMember[] = [
     role: 'Главен редактор',
     class: '10. г клас',
     bio: 'Главен редактор на подкаста. Дизайнер на студиото и визуалната среда.',
+    instagram: 'https://www.instagram.com/kiki_soulflow/',
   },
 ];

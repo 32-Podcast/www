@@ -16,4 +16,18 @@ const nameStyle = size === 'large' ? 'font-size:1.1rem;' : '';
   <div class="role">{member.role}</div>
   <div class="class">{member.class}</div>
   {member.bio && <p class="bio">{member.bio}</p>}
+  {(member.instagram || member.website) && (
+    <div class="team-socials">
+      {member.instagram && (
+        <a href={member.instagram} target="_blank" rel="noopener" aria-label={`${member.name} в Instagram`}>
+          <i class="fab fa-instagram"></i>
+        </a>
+      )}
+      {member.website && (
+        <a href={member.website} target="_blank" rel="noopener" aria-label={`Сайт на ${member.name}`}>
+          <i class="fas fa-globe"></i>
+        </a>
+      )}
+    </div>
+  )}
 </article>
