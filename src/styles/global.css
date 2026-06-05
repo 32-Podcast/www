@@ -341,8 +341,8 @@ section { padding: 4rem 0; }
 .team-card .role { color: var(--color-coral-light); font-size: 0.78rem; font-weight: 500; }
 .team-card .class { color: rgba(255,255,255,0.35); font-size: 0.75rem; margin-top: 0.15rem; }
 .team-card .bio { color: rgba(255,255,255,0.5); margin-top: 0.65rem; font-size: 0.82rem; line-height: 1.7; }
-.team-card .team-socials { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08); }
-.team-card .team-socials a { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.04); border-radius: 50%; text-decoration: none; transition: all .25s; font-size: 0.85rem; }
+.team-card .team-socials { display: flex; justify-content: center; gap: 0.6rem; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.team-card .team-socials a { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.04); border-radius: 50%; text-decoration: none; transition: all .25s; font-size: 1.05rem; }
 .team-card .team-socials a:hover { color: white; background: var(--color-coral); transform: translateY(-2px); }
 
 /* ============================================
