@@ -405,6 +405,11 @@ section { padding: 4rem 0; }
 .calendar-cell .cell-day { font-size: 0.82rem; font-weight: 500; color: var(--color-ink); opacity: 0.8; }
 .calendar-cell.today { background: var(--color-coral); }
 .calendar-cell.today .cell-day { color: white; opacity: 1; font-weight: 700; }
+.calendar-cell.has-event { flex-direction: column; align-items: stretch; justify-content: space-between; padding: 0.4rem 0.5rem; background: color-mix(in srgb, var(--color-coral) 12%, transparent); border: 1px solid color-mix(in srgb, var(--color-coral) 25%, transparent); }
+.calendar-cell.has-event .cell-day { align-self: flex-end; }
+.calendar-cell.has-event.today { background: var(--color-coral); }
+.calendar-cell .event-badge { display: inline-block; align-self: flex-end; font-size: 0.58rem; font-weight: 700; background: var(--color-coral); color: white; padding: 0.12rem 0.4rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.03em; }
+.calendar-cell.has-event.today .event-badge { background: white; color: var(--color-coral); }
 @media (min-width: 640px) {
   .calendar-cell { padding: 0.65rem; }
   .calendar-cell .cell-day { font-size: 0.95rem; }
