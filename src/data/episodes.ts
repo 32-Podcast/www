@@ -19,6 +19,7 @@ export const episodes: Episode[] = [
   { id: '6VzfCV5J_L0', order: 10, rubric: 'Междучасие', title: 'Как да съчетаем фитнес, училище и работа', date: '2026-01-26' },
   { id: 'M-ynZ1ijkJE', order: 11, rubric: 'Междучасие', title: 'С какво се занимаваме извън ученето?', date: '2026-05-22' },
   { id: 'FI1tHW7d3A8', order: 12, rubric: 'Междучасие', title: 'Проблемите на тийнейджърите', date: '2026-05-29' },
+  { id: '5jDmPg-gVBo', order: 14, rubric: 'Междучасие', title: 'Нов училищен STEM център & Втори интердисциплинарен турнир „Деца на науката"', date: '2026-06-06' },
 ];
 
 export function latestEpisodes(count = 3): Episode[] {
