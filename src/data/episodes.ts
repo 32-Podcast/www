@@ -31,9 +31,21 @@ export function episodeLabel(order: number): string {
   return `ЕП.${order}`;
 }
 
-export function formatDate(iso: string): string {
-  const d = new Date(iso);
-  return d.toLocaleDateString('bg-BG', { day: 'numeric', month: 'short', year: 'numeric' });
+const BG_MONTHS = [
+  'януари', 'февруари', 'март', 'април', 'май', 'юни',
+  'юли', 'август', 'септември', 'октомври', 'ноември', 'декември',
+];
+
+const BG_MONTHS_SHORT = [
+  'яну', 'фев', 'мар', 'апр', 'май', 'юни',
+  'юли', 'авг', 'сеп', 'окт', 'ное', 'дек',
+];
+
+export function formatDate(iso: string, style: 'long' | 'short' = 'long'): string {
+  const [y, m, d] = iso.split('-').map(Number);
+  if (!y || !m || !d) return iso;
+  const months = style === 'short' ? BG_MONTHS_SHORT : BG_MONTHS;
+  return `${d} ${months[m - 1]} ${y}`;
 }
 
 export function youtubeUrl(id: string): string {
