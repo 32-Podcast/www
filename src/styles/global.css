@@ -333,6 +333,34 @@ section { padding: 4rem 0; }
 :root[data-theme='catppuccin'] .team-section .section-desc,
 :root[data-theme='catppuccin'] .team-card h4,
 :root[data-theme='catppuccin'] .team-card .class { color: #cdd6f4; }
+
+:root[data-theme='light'] .team-section { background: #2e2e2e; }
+:root[data-theme='light'] .team-section .section-title,
+:root[data-theme='light'] .team-section .section-desc,
+:root[data-theme='light'] .team-card h4 { color: #f2f0e3; }
+:root[data-theme='light'] .team-card .role { color: #fa8f7a; }
+:root[data-theme='light'] .team-card .class,
+:root[data-theme='light'] .team-card .bio { color: rgba(255,255,255,0.45); }
+:root[data-theme='light'] .team-card .team-socials a { color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.05); }
+
+:root[data-theme='gruvbox'] .team-section { background: #3c3836; }
+:root[data-theme='gruvbox'] .team-section .section-title,
+:root[data-theme='gruvbox'] .team-section .section-desc,
+:root[data-theme='gruvbox'] .team-card h4 { color: #fbf1c7; }
+:root[data-theme='gruvbox'] .team-card .role { color: #ffb84d; }
+:root[data-theme='gruvbox'] .team-card .class,
+:root[data-theme='gruvbox'] .team-card .bio { color: rgba(255,255,255,0.35); }
+:root[data-theme='gruvbox'] .team-card .team-socials a { color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.05); }
+
+:root[data-theme='rose-pine'] .team-section { background: #1f1d2e; }
+:root[data-theme='rose-pine'] .team-section .section-title,
+:root[data-theme='rose-pine'] .team-section .section-desc,
+:root[data-theme='rose-pine'] .team-card h4 { color: #e0def4; }
+:root[data-theme='rose-pine'] .team-card .role { color: #f6c177; }
+:root[data-theme='rose-pine'] .team-card .class,
+:root[data-theme='rose-pine'] .team-card .bio { color: rgba(255,255,255,0.4); }
+:root[data-theme='rose-pine'] .team-card .team-socials a { color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+
 .team-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; position: relative; z-index: 1; }
 @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .team-grid { grid-template-columns: repeat(4, 1fr); } }
