@@ -20,9 +20,9 @@ const spotifyShow = site.spotifyShow;
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand-block">
+    <div class="footer-brand">
       <div class="footer-brand-name">32 Подкаст</div>
-      <p class="footer-desc">Училищно радио "32 Подкаст" — гласът на 32. СУИЧЕ "Св. Климент Охридски". Подкасти, видео предавания и много настроение.</p>
+      <p class="footer-desc">Училищно радио "32 Подкаст" — гласът на 32. СУИЧЕ "Св. Климент Охридски".</p>
       <div class="footer-socials">
         <a href={facebookPage} target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href={youtubeChannel} target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -32,7 +32,7 @@ const spotifyShow = site.spotifyShow;
       </div>
     </div>
 
-    <div class="footer-links-group">
+    <div class="footer-links">
       <div class="footer-col">
         <h4>Подкаст</h4>
         {podcastLinks.map(i => <a href={i.href}>{i.label}</a>)}
