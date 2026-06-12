@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
 import TeamCard from '../components/TeamCard.astro';
 import YouTubeCTA from '../components/YouTubeCTA.astro';
-import { latestEpisodes, episodes } from '../data/episodes';
-import { team } from '../data/team';
-import { youtubeChannel } from '../data/site';
+import { latestEpisodes, episodes } from '../data';
+import { team } from '../data';
+import { site } from '../data';
 
 const latest = latestEpisodes(3);
 const stats = {
@@ -13,6 +13,8 @@ const stats = {
   team: team.length,
   rubrics: 2,
 };
+
+const youtubeChannel = site.youtubeChannel;
 ---
 <BaseLayout title="32 Подкаст | 32. СУИЧЕ &quot;Св. Климент Охридски&quot;" activeNav="/">
   <section class="hero" id="header">

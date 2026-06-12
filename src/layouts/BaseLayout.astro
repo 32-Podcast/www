@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 import Footer from '../components/Footer.astro';
-import { navItems } from '../data/site';
+import { site, type NavItem } from '../data';
 
 export interface Props {
   title: string;
@@ -37,8 +37,8 @@ const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 �
 </script>
 </head>
 <body>
-<MobileMenu items={navItems} activeNav={activeNav} />
-<Navbar items={navItems} activeNav={activeNav} />
+<MobileMenu items={site.navItems} activeNav={activeNav} />
+<Navbar items={site.navItems} activeNav={activeNav} />
 
 <main>
   <slot />

@@ -323,11 +323,21 @@ section { padding: 4rem 0; }
 /* ============================================
    TEAM SECTION
    ============================================ */
-.team-section { background: var(--color-ink); border-radius: var(--radius-xl); padding: 3rem 2rem; margin: 4rem 0 1.5rem; overflow: hidden; position: relative; }
+.team-section {
+  background: var(--color-ink);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2rem;
+  margin: 4rem 0 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
 @media (min-width: 768px) { .team-section { padding: 4rem; } }
+
 .team-section .section-title { color: var(--color-paper); }
 .team-section .section-desc { opacity: 0.6; color: var(--color-paper); }
 .team-section .section-tag { color: var(--color-coral-light); }
+
 :root[data-theme='catppuccin'] .team-section { background: #11111b; }
 :root[data-theme='catppuccin'] .team-section .section-title,
 :root[data-theme='catppuccin'] .team-section .section-desc,
@@ -338,42 +348,118 @@ section { padding: 4rem 0; }
 :root[data-theme='light'] .team-section .section-title,
 :root[data-theme='light'] .team-section .section-desc,
 :root[data-theme='light'] .team-card h4 { color: #f2f0e3; }
-:root[data-theme='light'] .team-card .role { color: #fa8f7a; }
-:root[data-theme='light'] .team-card .class,
-:root[data-theme='light'] .team-card .bio { color: rgba(255,255,255,0.45); }
-:root[data-theme='light'] .team-card .team-socials a { color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.05); }
 
 :root[data-theme='gruvbox'] .team-section { background: #3c3836; }
 :root[data-theme='gruvbox'] .team-section .section-title,
 :root[data-theme='gruvbox'] .team-section .section-desc,
 :root[data-theme='gruvbox'] .team-card h4 { color: #fbf1c7; }
-:root[data-theme='gruvbox'] .team-card .role { color: #ffb84d; }
-:root[data-theme='gruvbox'] .team-card .class,
-:root[data-theme='gruvbox'] .team-card .bio { color: rgba(255,255,255,0.35); }
-:root[data-theme='gruvbox'] .team-card .team-socials a { color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.05); }
 
 :root[data-theme='rose-pine'] .team-section { background: #1f1d2e; }
 :root[data-theme='rose-pine'] .team-section .section-title,
 :root[data-theme='rose-pine'] .team-section .section-desc,
 :root[data-theme='rose-pine'] .team-card h4 { color: #e0def4; }
-:root[data-theme='rose-pine'] .team-card .role { color: #f6c177; }
-:root[data-theme='rose-pine'] .team-card .class,
-:root[data-theme='rose-pine'] .team-card .bio { color: rgba(255,255,255,0.4); }
-:root[data-theme='rose-pine'] .team-card .team-socials a { color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
 
 .team-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; position: relative; z-index: 1; }
 @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .team-grid { grid-template-columns: repeat(4, 1fr); } }
-.team-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center; transition: all .3s; }
-.team-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.07); border-color: rgba(247,111,83,0.3); }
-.team-card .avatar { width: 64px; height: 64px; background: var(--color-coral); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: white; font-weight: 700; }
-.team-card h4 { color: var(--color-paper); font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
-.team-card .role { color: var(--color-coral-light); font-size: 0.78rem; font-weight: 500; }
-.team-card .class { color: rgba(255,255,255,0.35); font-size: 0.75rem; margin-top: 0.15rem; }
-.team-card .bio { color: rgba(255,255,255,0.5); margin-top: 0.65rem; font-size: 0.82rem; line-height: 1.7; }
-.team-card .team-socials { display: flex; justify-content: center; gap: 0.6rem; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08); }
-.team-card .team-socials a { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.04); border-radius: 50%; text-decoration: none; transition: all .25s; font-size: 1.05rem; }
-.team-card .team-socials a:hover { color: white; background: var(--color-coral); transform: translateY(-2px); }
+
+.team-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  text-align: center;
+  transition: all .3s;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(247,111,83,0.3);
+}
+
+.team-card .avatar {
+  width: 64px;
+  height: 64px;
+  background: var(--color-coral);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 700;
+}
+
+.team-card h4 {
+  color: var(--color-paper);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.team-card .role {
+  color: var(--color-coral-light);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.team-card .class {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+
+.team-card .bio {
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.65rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.team-card .team-socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  list-style: none;
+  padding-left: 0;
+}
+
+.team-card .team-socials a {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all .25s;
+  font-size: 1.05rem;
+}
+
+.team-card .team-socials a:hover {
+  color: white;
+  background: var(--color-coral);
+  transform: translateY(-2px);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* ============================================
    YOUTUBE CTA

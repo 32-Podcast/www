@@ -1,6 +1,6 @@
 ---
 import ThemeDropdown from './ThemeDropdown.astro';
-import { youtubeChannel, githubRepo, type NavItem } from '../data/site';
+import { site, type NavItem } from '../data';
 
 export interface Props {
   items: NavItem[];
@@ -8,6 +8,9 @@ export interface Props {
 }
 
 const { items, activeNav = '' } = Astro.props;
+
+const youtubeChannel = site.youtubeChannel;
+const githubRepo = site.githubRepo;
 ---
 <header class="navbar">
   <div class="container">

@@ -1,5 +1,5 @@
 ---
-import { youtubeChannel, facebookPage, instagramPage, schoolSite, githubOrg, spotifyShow, type NavItem } from '../data/site';
+import { site, type NavItem } from '../data';
 
 export interface Props {
   items: NavItem[];
@@ -9,6 +9,13 @@ const { items } = Astro.props;
 
 const podcastLinks = items.filter(i => ['/', '/episodes', '/rubrics', '/schedule'].includes(i.href));
 const aboutLinks = items.filter(i => ['/team', '/guests', '/contact'].includes(i.href));
+
+const youtubeChannel = site.youtubeChannel;
+const facebookPage = site.facebookPage;
+const instagramPage = site.instagramPage;
+const schoolSite = site.schoolSite;
+const githubOrg = site.githubOrg;
+const spotifyShow = site.spotifyShow;
 ---
 <footer>
   <div class="circles" aria-hidden="true">

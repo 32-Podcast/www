@@ -7,27 +7,45 @@ export interface Props {
 }
 
 const { member, size = 'default' } = Astro.props;
+
 const avatarStyle = size === 'large' ? 'width:80px;height:80px;font-size:1.7rem;' : '';
 const nameStyle = size === 'large' ? 'font-size:1.1rem;' : '';
+
+const hasSocials = member.instagram || member.website;
 ---
 <article class="team-card" style={size === 'large' ? 'padding:2.5rem;' : ''}>
-  <div class="avatar" style={avatarStyle}>{member.initials}</div>
+  <div class="avatar" style={avatarStyle} aria-hidden="true">{member.initials}</div>
   <h4 style={nameStyle}>{member.name}</h4>
   <div class="role">{member.role}</div>
   <div class="class">{member.class}</div>
   {member.bio && <p class="bio">{member.bio}</p>}
-  {(member.instagram || member.website) && (
-    <div class="team-socials">
+  {hasSocials && (
+    <div class="team-socials" role="list" aria-label="Social media profiles">
       {member.instagram && (
-        <a href={member.instagram} target="_blank" rel="noopener" aria-label={`${member.name} в Instagram`}>
-          <i class="fab fa-instagram"></i>
+        <a href={member.instagram} target="_blank" rel="noopener noreferrer" aria-label={`Instagram profile of ${member.name}, opens in new tab`} role="listitem">
+          <span class="sr-only">Instagram</span>
+          <i class="fab fa-instagram" aria-hidden="true"></i>
         </a>
       )}
       {member.website && (
-        <a href={member.website} target="_blank" rel="noopener" aria-label={`Сайт на ${member.name}`}>
-          <i class="fas fa-globe"></i>
+        <a href={member.website} target="_blank" rel="noopener noreferrer" aria-label={`Website for ${member.name}, opens in new tab`} role="listitem">
+          <span class="sr-only">Website</span>
+          <i class="fas fa-globe" aria-hidden="true"></i>
         </a>
       )}
     </div>
   )}
 </article>
+<style>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
