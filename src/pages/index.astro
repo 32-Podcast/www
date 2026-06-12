@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
 import TeamCard from '../components/TeamCard.astro';
 import YouTubeCTA from '../components/YouTubeCTA.astro';
-import { latestEpisodes, episodes } from '../data';
-import { team } from '../data';
-import { site } from '../data';
+import { latestEpisodes, episodes } from '../data/episodes';
+import { team } from '../data/team';
+import { site } from '../data/site';
 
 const latest = latestEpisodes(3);
 const stats = {

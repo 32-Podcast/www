@@ -18,7 +18,7 @@ const ariaLabel = `${label} — ${episode.title}`;
     <div class="episode-thumb">
       <img src={thumb} alt={episode.title} loading="lazy">
       <div class="thumb-top-row">
-        <span class:list={["thumb-label", isSpecial && "is-special"]} aria-hidden="true">{label}</span>
+        <span class="thumb-label" class:list={[isSpecial && "is-special"]} aria-hidden="true">{label}</span>
         <span class="thumb-date" aria-hidden="true">{date}</span>
       </div>
       <div class="thumb-title-overlay">

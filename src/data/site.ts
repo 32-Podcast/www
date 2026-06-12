@@ -1,6 +1,6 @@
 export const site = {
   title: '32 Подкаст',
-  description: 'Училищният сайт на 32. СУИЧЕ — ученически подкаст, съдържащ интервюта, дискусии и мнения от учениците.',
+  description: 'Училищният сайт на 32. СУИЧЕ — ученически подкаст, съдържащ интервюта, дискусии и мнения от учение.',
   url: 'https://www-6wp.pages.dev/',
   navItems: [
     { href: '/', label: 'Начало', exact: true },
@@ -23,16 +23,10 @@ export const site = {
   contactEmail: 'school32.podcast32@school32.com',
 };
 
+export type NavItem = {
+  href: string;
+  label: string;
+  exact?: boolean;
+};
+
 export const { title, description, url, navItems, youtubeChannel, facebookPage, instagramPage, schoolSite, githubRepo, githubOrg, spotifyShow, schoolAddress, schoolAddressMapsUrl, contactEmail } = site;
-
-export type NavItem = {
-  href: string;
-  label: string;
-  exact?: boolean;
-};
-
-export type NavItem = {
-  href: string;
-  label: string;
-  exact?: boolean;
-};
