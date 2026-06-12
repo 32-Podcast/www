@@ -2,43 +2,35 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { youtubeChannel } from '../data/site';
-import { events } from '../data/events';
+import { episodes, episodeLabel } from '../data/episodes';
 
 const now = new Date();
-const year = now.getFullYear();
-const month = now.getMonth();
+const currentYear = now.getFullYear();
+const currentMonth = now.getMonth();
 const today = now.getDate();
 
 const monthNames = ['Януари', 'Февруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'];
-const weekdayNames = ['Пон', 'Вто', 'Сря', 'Чет', 'Пет', 'Съб', 'Нед'];
+const weekdayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'];
 
-const firstDay = new Date(year, month, 1);
-const daysInMonth = new Date(year, month + 1, 0).getDate();
-const firstDayBulgarian = (firstDay.getDay() + 6) % 7;
-
-const monthEvents = events.filter(e => {
-  const [y, m] = e.date.split('-').map(Number);
-  return y === year && m - 1 === month;
+const episodeDates = episodes.map(ep => {
+  const [y, m, d] = ep.date.split('-').map(Number);
+  return { year: y, month: m - 1, day: d, order: ep.order, title: ep.title, rubric: ep.rubric };
 });
-const eventsByDay = new Map<number, { label: string; weekday: string }>();
-for (const e of monthEvents) {
-  const [y, m, d] = e.date.split('-').map(Number);
-  const dt = new Date(y, m - 1, d);
-  const wd = (dt.getDay() + 6) % 7;
-  eventsByDay.set(d, { label: e.label, weekday: weekdayNames[wd] });
+
+const allMonthsMap = new Map<number, Map<number, typeof episodeDates>>();
+for (const ep of episodeDates) {
+  const ym = ep.year * 100 + ep.month;
+  if (!allMonthsMap.has(ym)) allMonthsMap.set(ym, new Map());
+  const monthMap = allMonthsMap.get(ym)!;
+  if (!monthMap.has(ep.day)) monthMap.set(ep.day, []);
+  monthMap.get(ep.day)!.push(ep);
 }
 
-const cells: { day: number | null; isToday: boolean; eventLabel?: string; eventWeekday?: string }[] = [];
-for (let i = 0; i < firstDayBulgarian; i++) {
-  cells.push({ day: null, isToday: false });
-}
-for (let d = 1; d <= daysInMonth; d++) {
-  const ev = eventsByDay.get(d);
-  cells.push({ day: d, isToday: d === today, eventLabel: ev?.label, eventWeekday: ev?.weekday });
-}
-while (cells.length % 7 !== 0) {
-  cells.push({ day: null, isToday: false });
-}
+const sortedYMs = [...allMonthsMap.keys()].sort((a, b) => b - a);
+const episodeDatesJson = JSON.stringify(episodeDates);
+const sortedYMsJson = JSON.stringify(sortedYMs);
+const monthNamesJson = JSON.stringify(monthNames);
+const weekdayNamesJson = JSON.stringify(weekdayNames);
 ---
 <BaseLayout title="Програма" description="Месечна програма на 32 Подкаст — следи за новите епизоди през целия месец." activeNav="/schedule">
   <div class="container">
@@ -48,30 +40,33 @@ while (cells.length % 7 !== 0) {
   <div class="container">
     <section style="padding-top:0;">
       <div class="calendar reveal">
-        <div class="calendar-header">
-          <h2>{monthNames[month]} {year}</h2>
+        <div class="calendar-nav">
+          <button class="calendar-nav-btn" id="prevMonth" aria-label="Предишен месец">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="calendar-month-title" id="monthTitle"></div>
+          <button class="calendar-nav-btn" id="nextMonth" aria-label="Следващ месец">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
         <div class="calendar-weekdays">
           {weekdayNames.map(d => <div class="weekday">{d}</div>)}
         </div>
-        <div class="calendar-grid">
-          {cells.map(c => (
-            <div class:list={["calendar-cell", !c.day && "empty", c.isToday && "today", c.eventLabel && "has-event"]}>
-              {c.day !== null && (
-                <>
-                  <span class="cell-day">{c.day}</span>
-                  {c.eventLabel && (
-                    <span class="event-badge" title={`${c.eventWeekday} · ${c.eventLabel}`}>
-                      <span class="event-weekday">{c.eventWeekday}</span>
-                      {c.eventLabel}
-                    </span>
-                  )}
-                </>
-              )}
-            </div>
-          ))}
-        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
       </div>
+
+      <div class="calendar-months-grid reveal" style="margin-top:2rem;" id="monthsGrid">
+        {sortedYMs.map((ym, i) => {
+          const y = Math.floor(ym / 100);
+          const m = ym % 100;
+          return (
+            <button class:list={["month-chip", i === 0 && "active"]} data-ym={ym}>
+              {monthNames[m]} {y}
+            </button>
+          );
+        })}
+      </div>
+
       <div style="text-align:center;margin-top:2.5rem;" class="reveal">
         <p style="color:var(--color-ink);opacity:0.6;margin-bottom:1rem;">
           <i class="fas fa-info-circle" style="color:var(--color-coral);"></i>
@@ -84,3 +79,89 @@ while (cells.length % 7 !== 0) {
     </section>
   </div>
 </BaseLayout>
+
+<script is:inline>
+(function() {
+  var allMonths = {sortedYMsJson};
+  var monthNames = {monthNamesJson};
+  var weekdayNames = {weekdayNamesJson};
+  var episodes = {episodeDatesJson};
+  var currentYear = {currentYear};
+  var currentMonth = {currentMonth};
+  var todayDate = {today};
+
+  function buildCells(year, month) {
+    var firstDay = new Date(year, month, 1).getDay();
+    var firstDayBG = (firstDay + 6) % 7;
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    var cells = [];
+    for (var i = 0; i < firstDayBG; i++) cells.push(null);
+    for (var d = 1; d <= daysInMonth; d++) {
+      var dayEps = episodes.filter(function(ep) { return ep.year === year && ep.month === month && ep.day === d; });
+      cells.push({ day: d, isToday: year === currentYear && month === currentMonth && d === todayDate, events: dayEps });
+    }
+    while (cells.length % 7 !== 0) cells.push(null);
+    return cells;
+  }
+
+  function renderCalendar(year, month) {
+    var cells = buildCells(year, month);
+    var grid = document.getElementById('calendarGrid');
+    var title = document.getElementById('monthTitle');
+    if (!grid || !title) return;
+    title.textContent = monthNames[month] + ' ' + year;
+    grid.innerHTML = '';
+    cells.forEach(function(c) {
+      var div = document.createElement('div');
+      div.className = 'calendar-cell';
+      if (!c) { div.classList.add('empty'); grid.appendChild(div); return; }
+      if (c.isToday) div.classList.add('today');
+      if (c.events.length > 0) div.classList.add('has-event');
+      var daySpan = document.createElement('span');
+      daySpan.className = 'cell-day';
+      daySpan.textContent = c.day;
+      div.appendChild(daySpan);
+      c.events.forEach(function(ep) {
+        var badge = document.createElement('span');
+        badge.className = 'event-badge' + (ep.rubric === 'SPECIAL' ? ' is-special' : '');
+        var dt = new Date(year, month, ep.day);
+        var wd = (dt.getDay() + 6) % 7;
+        badge.textContent = weekdayNames[wd] + ' ЕП.' + ep.order;
+        badge.title = ep.title;
+        div.appendChild(badge);
+      });
+      grid.appendChild(div);
+    });
+    var idx = allMonths.indexOf(year * 100 + month);
+    document.getElementById('prevMonth').disabled = idx >= allMonths.length - 1;
+    document.getElementById('nextMonth').disabled = idx <= 0;
+    var chips = document.querySelectorAll('.month-chip');
+    chips.forEach(function(chip) {
+      chip.classList.toggle('active', parseInt(chip.getAttribute('data-ym')) === year * 100 + month);
+    });
+  }
+
+  var currentYM = allMonths[0];
+  document.getElementById('prevMonth').addEventListener('click', function() {
+    var idx = allMonths.indexOf(currentYM);
+    if (idx < allMonths.length - 1) {
+      currentYM = allMonths[idx + 1];
+      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+    }
+  });
+  document.getElementById('nextMonth').addEventListener('click', function() {
+    var idx = allMonths.indexOf(currentYM);
+    if (idx > 0) {
+      currentYM = allMonths[idx - 1];
+      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+    }
+  });
+  document.querySelectorAll('.month-chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      currentYM = parseInt(chip.getAttribute('data-ym'));
+      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+    });
+  });
+  renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+})();
+</script>
