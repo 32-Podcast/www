@@ -604,6 +604,13 @@ section { padding: 4rem 0; }
 /* ============================================
    FOOTER
    ============================================ */
+.social-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.social-links a { width: 48px; height: 48px; background: rgba(242,240,227,0.06); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #f2f0e3; text-decoration: none; transition: all .25s; font-size: 1.15rem; }
+:root[data-theme='dark'] .social-links a { color: #ddd9c8; }
+:root[data-theme='catppuccin'] .social-links a { color: #cdd6f4; }
+:root[data-theme='gruvbox'] .social-links a { color: #ebdbb2; }
+:root[data-theme='rose-pine'] .social-links a { color: #e0def4; }
+.social-links a:hover { background: #f76f53; color: white; transform: translateY(-2px); }
 footer { background: #2e2e2e; color: #f2f0e3; }
 :root[data-theme='dark'] footer { background: #1a1a1a; color: #ddd9c8; }
 :root[data-theme='catppuccin'] footer { background: #11111b; color: #cdd6f4; }
