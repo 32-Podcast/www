@@ -618,8 +618,8 @@ footer { background: #2e2e2e; color: #f2f0e3; }
 :root[data-theme='gruvbox'] .footer-brand-name { color: #ebdbb2; }
 :root[data-theme='rose-pine'] .footer-brand-name { color: #e0def4; }
 .footer-desc { color: rgba(242,240,227,0.45); font-size: 0.85rem; line-height: 1.5; }
-.footer-socials { display: flex; gap: 0.35rem; margin-top: 0.3rem; }
-.footer-socials a { width: 30px; height: 30px; background: rgba(242,240,227,0.06); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(242,240,227,0.5); text-decoration: none; transition: all .25s; font-size: 0.8rem; }
+.footer-socials { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
+.footer-socials a { width: 38px; height: 38px; background: rgba(242,240,227,0.06); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(242,240,227,0.5); text-decoration: none; transition: all .25s; font-size: 1rem; }
 .footer-socials a:hover { background: #f76f53; color: white; transform: translateY(-2px); }
 .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 @media (min-width: 768px) { .footer-links { gap: 2.5rem; justify-content: center; } }
