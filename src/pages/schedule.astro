@@ -27,10 +27,101 @@ for (const ep of episodeDates) {
 }
 
 const sortedYMs = [...allMonthsMap.keys()].sort((a, b) => b - a);
-const episodeDatesJson = JSON.stringify(episodeDates);
-const sortedYMsJson = JSON.stringify(sortedYMs);
-const monthNamesJson = JSON.stringify(monthNames);
-const weekdayNamesJson = JSON.stringify(weekdayNames);
+
+const calendarData = JSON.stringify({
+  allMonths: sortedYMs,
+  monthNames,
+  weekdayNames,
+  episodes: episodeDates,
+  currentYear,
+  currentMonth,
+  today
+});
+
+const calendarScript = `(function() {
+  var data = ${calendarData};
+  var allMonths = data.allMonths;
+  var monthNames = data.monthNames;
+  var weekdayNames = data.weekdayNames;
+  var episodes = data.episodes;
+  var currentYear = data.currentYear;
+  var currentMonth = data.currentMonth;
+  var todayDate = data.today;
+
+  function buildCells(year, month) {
+    var firstDay = new Date(year, month, 1).getDay();
+    var firstDayBG = (firstDay + 6) % 7;
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    var cells = [];
+    for (var i = 0; i < firstDayBG; i++) cells.push(null);
+    for (var d = 1; d <= daysInMonth; d++) {
+      var dayEps = episodes.filter(function(ep) { return ep.year === year && ep.month === month && ep.day === d; });
+      cells.push({ day: d, isToday: year === currentYear && month === currentMonth && d === todayDate, events: dayEps });
+    }
+    while (cells.length % 7 !== 0) cells.push(null);
+    return cells;
+  }
+
+  function renderCalendar(year, month) {
+    var cells = buildCells(year, month);
+    var grid = document.getElementById('calendarGrid');
+    var title = document.getElementById('monthTitle');
+    if (!grid || !title) return;
+    title.textContent = monthNames[month] + ' ' + year;
+    grid.innerHTML = '';
+    cells.forEach(function(c) {
+      var div = document.createElement('div');
+      div.className = 'calendar-cell';
+      if (!c) { div.classList.add('empty'); grid.appendChild(div); return; }
+      if (c.isToday) div.classList.add('today');
+      if (c.events.length > 0) div.classList.add('has-event');
+      var daySpan = document.createElement('span');
+      daySpan.className = 'cell-day';
+      daySpan.textContent = c.day;
+      div.appendChild(daySpan);
+      c.events.forEach(function(ep) {
+        var badge = document.createElement('span');
+        badge.className = 'event-badge' + (ep.rubric === 'SPECIAL' ? ' is-special' : '');
+        var dt = new Date(year, month, ep.day);
+        var wd = (dt.getDay() + 6) % 7;
+        badge.textContent = weekdayNames[wd] + ' \u0415\u041f.' + ep.order;
+        badge.title = ep.title;
+        div.appendChild(badge);
+      });
+      grid.appendChild(div);
+    });
+    var idx = allMonths.indexOf(year * 100 + month);
+    document.getElementById('prevMonth').disabled = idx >= allMonths.length - 1;
+    document.getElementById('nextMonth').disabled = idx <= 0;
+    var chips = document.querySelectorAll('.month-chip');
+    chips.forEach(function(chip) {
+      chip.classList.toggle('active', parseInt(chip.getAttribute('data-ym')) === year * 100 + month);
+    });
+  }
+
+  var currentYM = allMonths[0];
+  document.getElementById('prevMonth').addEventListener('click', function() {
+    var idx = allMonths.indexOf(currentYM);
+    if (idx < allMonths.length - 1) {
+      currentYM = allMonths[idx + 1];
+      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+    }
+  });
+  document.getElementById('nextMonth').addEventListener('click', function() {
+    var idx = allMonths.indexOf(currentYM);
+    if (idx > 0) {
+      currentYM = allMonths[idx - 1];
+      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+    }
+  });
+  document.querySelectorAll('.month-chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      currentYM = parseInt(chip.getAttribute('data-ym'));
+      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+    });
+  });
+  renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+})();`;
 ---
 <BaseLayout title="Програма" description="Месечна програма на 32 Подкаст — следи за новите епизоди през целия месец." activeNav="/schedule">
   <div class="container">
@@ -78,90 +169,6 @@ const weekdayNamesJson = JSON.stringify(weekdayNames);
       </div>
     </section>
   </div>
+
+  <script set:html={calendarScript}></script>
 </BaseLayout>
-
-<script is:inline>
-(function() {
-  var allMonths = {sortedYMsJson};
-  var monthNames = {monthNamesJson};
-  var weekdayNames = {weekdayNamesJson};
-  var episodes = {episodeDatesJson};
-  var currentYear = {currentYear};
-  var currentMonth = {currentMonth};
-  var todayDate = {today};
-
-  function buildCells(year, month) {
-    var firstDay = new Date(year, month, 1).getDay();
-    var firstDayBG = (firstDay + 6) % 7;
-    var daysInMonth = new Date(year, month + 1, 0).getDate();
-    var cells = [];
-    for (var i = 0; i < firstDayBG; i++) cells.push(null);
-    for (var d = 1; d <= daysInMonth; d++) {
-      var dayEps = episodes.filter(function(ep) { return ep.year === year && ep.month === month && ep.day === d; });
-      cells.push({ day: d, isToday: year === currentYear && month === currentMonth && d === todayDate, events: dayEps });
-    }
-    while (cells.length % 7 !== 0) cells.push(null);
-    return cells;
-  }
-
-  function renderCalendar(year, month) {
-    var cells = buildCells(year, month);
-    var grid = document.getElementById('calendarGrid');
-    var title = document.getElementById('monthTitle');
-    if (!grid || !title) return;
-    title.textContent = monthNames[month] + ' ' + year;
-    grid.innerHTML = '';
-    cells.forEach(function(c) {
-      var div = document.createElement('div');
-      div.className = 'calendar-cell';
-      if (!c) { div.classList.add('empty'); grid.appendChild(div); return; }
-      if (c.isToday) div.classList.add('today');
-      if (c.events.length > 0) div.classList.add('has-event');
-      var daySpan = document.createElement('span');
-      daySpan.className = 'cell-day';
-      daySpan.textContent = c.day;
-      div.appendChild(daySpan);
-      c.events.forEach(function(ep) {
-        var badge = document.createElement('span');
-        badge.className = 'event-badge' + (ep.rubric === 'SPECIAL' ? ' is-special' : '');
-        var dt = new Date(year, month, ep.day);
-        var wd = (dt.getDay() + 6) % 7;
-        badge.textContent = weekdayNames[wd] + ' ЕП.' + ep.order;
-        badge.title = ep.title;
-        div.appendChild(badge);
-      });
-      grid.appendChild(div);
-    });
-    var idx = allMonths.indexOf(year * 100 + month);
-    document.getElementById('prevMonth').disabled = idx >= allMonths.length - 1;
-    document.getElementById('nextMonth').disabled = idx <= 0;
-    var chips = document.querySelectorAll('.month-chip');
-    chips.forEach(function(chip) {
-      chip.classList.toggle('active', parseInt(chip.getAttribute('data-ym')) === year * 100 + month);
-    });
-  }
-
-  var currentYM = allMonths[0];
-  document.getElementById('prevMonth').addEventListener('click', function() {
-    var idx = allMonths.indexOf(currentYM);
-    if (idx < allMonths.length - 1) {
-      currentYM = allMonths[idx + 1];
-      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
-    }
-  });
-  document.getElementById('nextMonth').addEventListener('click', function() {
-    var idx = allMonths.indexOf(currentYM);
-    if (idx > 0) {
-      currentYM = allMonths[idx - 1];
-      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
-    }
-  });
-  document.querySelectorAll('.month-chip').forEach(function(chip) {
-    chip.addEventListener('click', function() {
-      currentYM = parseInt(chip.getAttribute('data-ym'));
-      renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
-    });
-  });
-  renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
-})();
-</script>
