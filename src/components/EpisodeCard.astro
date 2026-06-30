@@ -10,36 +10,21 @@ const thumb = thumbnailUrl(episode.id);
 const label = episodeLabel(episode.order);
 const date = formatDate(episode.date);
 const isSpecial = episode.rubric === 'SPECIAL';
-
 const ariaLabel = `${label} — ${episode.title}`;
 ---
+
 <article class="episode-card reveal" data-date={episode.date}>
   <a href={url} target="_blank" class="episode-thumb-link" rel="noopener noreferrer" aria-label={ariaLabel}>
     <div class="episode-thumb">
       <img src={thumb} alt={episode.title} loading="lazy">
-      <div class="thumb-top-row">
-        <span class="thumb-label" class:list={[isSpecial && "is-special"]} aria-hidden="true">{label}</span>
-        <span class="thumb-date" aria-hidden="true">{date}</span>
-      </div>
-      <div class="thumb-title-overlay">
-        {isSpecial && <span class="thumb-rubric" aria-hidden="true">SPECIAL</span>}
-        <h4>{episode.title}</h4>
-      </div>
-      <span class="play-overlay" aria-hidden="true"><i class="fas fa-play"></i></span>
     </div>
-    <span class="sr-only">Open in YouTube</span>
   </a>
+  <div class="episode-info">
+    <span class:list={["ep-label", isSpecial && "is-special"]}>{label}</span>
+    <h4>{episode.title}</h4>
+    <span class="ep-date">{date}</span>
+    <a href={url} target="_blank" rel="noopener noreferrer" class="ep-watch">
+      <i class="fab fa-youtube"></i> Гледай
+    </a>
+  </div>
 </article>
-<style>
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-</style>

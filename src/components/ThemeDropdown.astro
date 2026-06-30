@@ -3,14 +3,11 @@ const themes = [
   { value: 'light', icon: 'sun', label: 'Светла' },
   { value: 'dark', icon: 'moon', label: 'Тъмна' },
   { value: 'catppuccin', icon: 'palette', label: 'Catppuccin' },
-  { value: 'gruvbox', icon: 'fire', label: 'Gruvbox' },
-  { value: 'rose-pine', icon: 'gem', label: 'Rosé Pine' },
 ];
 ---
 <div class="theme-dropdown">
   <button class="theme-btn" onclick="toggleDropdown(arguments[0])" aria-label="Избор на тема">
     <i class="fas fa-sun" id="themeIcon"></i>
-    <i class="fas fa-chevron-down" style="font-size:0.55rem"></i>
   </button>
   <div class="theme-dropdown-menu" id="themeDropdown">
     {themes.map(t => (
