@@ -2,12 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
 import TeamCard from '../components/TeamCard.astro';
-import YouTubeCTA from '../components/YouTubeCTA.astro';
 import { latestEpisodes, episodes } from '../data/episodes';
 import { team } from '../data/team';
 import { site } from '../data/site';
 
-const latest = latestEpisodes(3);
+const latest = latestEpisodes(6);
 const stats = {
   episodes: episodes.length,
   team: team.length,
@@ -17,12 +16,16 @@ const stats = {
 const youtubeChannel = site.youtubeChannel;
 ---
 <BaseLayout title="32 Подкаст | 32. СУИЧЕ &quot;Св. Климент Охридски&quot;" activeNav="/">
+  <!-- HERO — KINETIC TYPE -->
   <section class="hero" id="header">
     <canvas class="hero-canvas" id="heroCanvas"></canvas>
     <div class="hero-content">
       <div class="hero-tag">Училищно радио — 32. СУИЧЕ</div>
-      <h1>32 <span class="accent">ПОДКАСТ</span></h1>
-      <p class="hero-subtitle">Твоят глас в ефира</p>
+      <h1 class="hero-title">
+        <span class="line1" id="heroLine1">32</span>
+        <span class="line2" id="heroLine2">ПОДКАСТ</span>
+      </h1>
+      <p class="hero-subtitle">Твоят глас в ефира — интервюта, музика и истории от училищния живот</p>
       <div class="hero-cta">
         <a href={youtubeChannel} target="_blank" rel="noopener" class="btn btn-accent">
           <i class="fab fa-youtube"></i> Гледай
@@ -35,9 +38,10 @@ const youtubeChannel = site.youtubeChannel;
     <div class="hero-scroll" aria-hidden="true">scroll</div>
   </section>
 
+  <!-- STATS -->
   <div class="container">
     <section>
-      <div class="stats-grid reveal" id="statsGrid">
+      <div class="stats-inline reveal" id="statsGrid">
         <div class="stat-item">
           <div class="number" data-target={stats.episodes}>0</div>
           <div class="label">Епизода</div>
@@ -54,36 +58,59 @@ const youtubeChannel = site.youtubeChannel;
     </section>
   </div>
 
-  <div class="container">
-    <section>
-      <div style="margin-bottom:2.5rem;">
-        <div class="section-tag">Рубрики</div>
-        <div class="section-title">Какво предлагаме</div>
-        <p class="section-desc">Всяка рубрика носи различен поглед върху училищния живот</p>
+  <!-- EPISODES — KINETIC STICKY HEADER + MASONRY -->
+  <div class="kinetic-section">
+    <div class="kinetic-header" id="episodesHeader">
+      <h2 id="episodesTitle">ЕПИЗОДИ</h2>
+      <div class="kinetic-count">{episodes.length} епизода</div>
+    </div>
+    <div class="kinetic-content">
+      <div class="episodes-masonry">
+        {latest.map(ep => <EpisodeCard episode={ep} />)}
       </div>
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="ficon"><i class="fas fa-comments"></i></div>
-          <div class="finfo">
-            <h4>Междучасие</h4>
-            <p>Ученици и учители провеждат разговор върху актуална тема</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="ficon"><i class="fas fa-star"></i></div>
-          <div class="finfo">
-            <h4>SPECIAL</h4>
-            <p>Специални епизоди с личности от училището и не само</p>
-          </div>
-        </div>
+      <div style="margin-top:2rem;">
+        <a href="/episodes" class="btn btn-primary">Всички епизоди <i class="fas fa-arrow-right"></i></a>
       </div>
-    </section>
+    </div>
   </div>
 
+  <!-- RUBRICS — STACKED BLOCKS WITH LEFT ACCENT -->
+  <div class="kinetic-section">
+    <div class="kinetic-header" id="rubricsHeader">
+      <h2 id="rubricsTitle">РУБРИКИ</h2>
+      <div class="kinetic-count">2 рубрики</div>
+    </div>
+    <div class="kinetic-content">
+      <div class="rubric-blocks">
+        <div class="rubric-block reveal">
+          <div class="rubric-accent-bar"></div>
+          <div class="rubric-block-inner">
+            <h3>МЕЖДУЧАСИЕ</h3>
+            <p>Ученици и учители провеждат разговор върху актуална, засягаща много хора тема</p>
+            <div class="rubric-actions">
+              <a href="/rubrics" class="btn btn-sm btn-ghost">Повече <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="rubric-block reveal">
+          <div class="rubric-accent-bar"></div>
+          <div class="rubric-block-inner">
+            <h3>SPECIAL</h3>
+            <p>Специални епизоди с личности — директора на училището, учители, външни гости</p>
+            <div class="rubric-actions">
+              <a href="/rubrics" class="btn btn-sm btn-ghost">Повече <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
   <div class="container">
     <section>
       <div class="about-grid">
-        <div class="about-image">
+        <div class="about-image reveal">
           <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&h=600&fit=crop" alt="Радио студио">
           <div class="floating-card">
             <div class="finfo">
@@ -92,66 +119,49 @@ const youtubeChannel = site.youtubeChannel;
             </div>
           </div>
         </div>
-        <div class="about-content">
+        <div class="about-content reveal">
           <div class="section-tag">За подкаста</div>
-          <h3>Дигитално преживяване за цялото училище</h3>
-          <p>"32 Подкаст" е училищното радио на 32. СУИЧЕ "Св. Климент Охридски" — мястото, където учениците дават глас на своите идеи, таланти и страсти.</p>
-          <p>Интервюта, музика, забавни рубрики и много настроение!</p>
+          <h3>Гласът на 32. СУИЧЕ</h3>
+          <p>"32 Подкаст" е училищното радио — мястото, където учениците дават глас на своите идеи, таланти и страсти.</p>
+          <p>Интервюта, музика, забавни рубрики и много настроение всяка седмица.</p>
         </div>
       </div>
     </section>
   </div>
 
+  <!-- TEAM — ASYMMETRIC -->
   <div class="team-section">
     <div class="container">
       <section>
-        <div style="margin-bottom:2.5rem;">
+        <div style="margin-bottom:2rem;">
           <div class="section-tag">Екип</div>
           <div class="section-title">Хората зад микрофона</div>
           <p class="section-desc">Талантливи ученици, които правят всяко предаване незабравимо</p>
         </div>
-        <div class="team-grid">
+        <div class="team-grid-asymmetric">
           {team.map(m => <TeamCard member={m} />)}
         </div>
       </section>
     </div>
   </div>
 
-  <div class="container">
-    <section>
-      <div style="margin-bottom:2.5rem;">
-        <div class="section-tag">YouTube</div>
-        <div class="section-title">Гледай ни онлайн</div>
-        <p class="section-desc">Всички епизоди на едно място</p>
-      </div>
-      <YouTubeCTA />
-    </section>
-  </div>
-
-  <div class="container">
-    <section>
-      <div style="margin-bottom:2.5rem;">
-        <div class="section-tag">Последни</div>
-        <div class="section-title">Най-новите предавания</div>
-        <p class="section-desc">Започни от тук, ако си нов в подкаста</p>
-      </div>
-      <div class="episodes-grid">
-        {latest.map(ep => <EpisodeCard episode={ep} />)}
-      </div>
-      <div style="margin-top:2rem;">
-        <a href="/episodes" class="btn btn-primary">Всички епизоди <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </section>
-  </div>
+  <!-- YOUTUBE — FULL WIDTH ACCENT -->
+  <section class="youtube-cta-block">
+    <h2>ГЛЕДАЙ</h2>
+    <p>Всички епизоди на YouTube — абонирай се за нови предавания</p>
+    <a href={youtubeChannel} target="_blank" rel="noopener" class="btn">
+      <i class="fab fa-youtube"></i> @schoolpodcast32
+    </a>
+  </section>
 </BaseLayout>
 
 <script is:inline>
 (function() {
-  // === CANVAS — noise + floating particles ===
+  // === CANVAS — particles + connecting lines ===
   var canvas = document.getElementById('heroCanvas');
   if (canvas) {
     var ctx = canvas.getContext('2d');
-    var w, h, particles = [], scrollY = 0;
+    var w, h, particles = [];
     var isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
                  document.documentElement.getAttribute('data-theme') === 'catppuccin';
 
@@ -162,23 +172,20 @@ const youtubeChannel = site.youtubeChannel;
     resize();
     window.addEventListener('resize', resize);
 
-    // Create particles
-    for (var i = 0; i < 60; i++) {
+    for (var i = 0; i < 50; i++) {
       particles.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
         r: Math.random() * 2 + 0.5,
-        alpha: Math.random() * 0.3 + 0.05
+        alpha: Math.random() * 0.25 + 0.05
       });
     }
 
     function drawFrame() {
-      var accentColor = isDark ? [255, 61, 0] : [10, 10, 10];
+      var c = isDark ? [255, 69, 0] : [26, 26, 26];
       ctx.clearRect(0, 0, w, h);
-
-      // Draw particles
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
         p.x += p.vx;
@@ -187,35 +194,30 @@ const youtubeChannel = site.youtubeChannel;
         if (p.x > w) p.x = 0;
         if (p.y < 0) p.y = h;
         if (p.y > h) p.y = 0;
-
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + accentColor[0] + ',' + accentColor[1] + ',' + accentColor[2] + ',' + p.alpha + ')';
+        ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + p.alpha + ')';
         ctx.fill();
       }
-
-      // Draw connecting lines between close particles
       for (var i = 0; i < particles.length; i++) {
         for (var j = i + 1; j < particles.length; j++) {
           var dx = particles[i].x - particles[j].x;
           var dy = particles[i].y - particles[j].y;
           var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < 100) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = 'rgba(' + accentColor[0] + ',' + accentColor[1] + ',' + accentColor[2] + ',' + (0.05 * (1 - dist / 120)) + ')';
+            ctx.strokeStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (0.04 * (1 - dist / 100)) + ')';
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
       }
-
       requestAnimationFrame(drawFrame);
     }
     drawFrame();
 
-    // Update theme on change
     var origSetTheme = window.setTheme;
     window.setTheme = function(n) {
       origSetTheme(n);
@@ -223,7 +225,21 @@ const youtubeChannel = site.youtubeChannel;
     };
   }
 
-  // === Stats counter ===
+  // === SCROLL — kinetic type parallax on hero ===
+  var line1 = document.getElementById('heroLine1');
+  var line2 = document.getElementById('heroLine2');
+  if (line1 && line2) {
+    window.addEventListener('scroll', function() {
+      var sy = window.scrollY;
+      var factor = Math.min(sy / 600, 1);
+      line1.style.transform = 'translateX(' + (-60 + factor * 60) + 'px) scale(' + (1 + factor * 0.3) + ')';
+      line1.style.opacity = 1 - factor * 0.8;
+      line2.style.transform = 'translateX(' + (60 - factor * 60) + 'px) scale(' + (1 + factor * 0.2) + ')';
+      line2.style.opacity = 1 - factor * 0.7;
+    }, { passive: true });
+  }
+
+  // === STATS counter ===
   var grid = document.getElementById('statsGrid');
   if (grid) {
     var numbers = grid.querySelectorAll('.number');
