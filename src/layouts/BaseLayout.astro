@@ -26,7 +26,7 @@ const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 �
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{fullTitle}</title>
 <meta name="description" content={description}>
-<meta name="theme-color" content="#f76f53">
+<meta name="theme-color" content="#ff3d00">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script is:inline>
   (function(){
@@ -37,6 +37,7 @@ const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 �
 </script>
 </head>
 <body>
+<div class="noise-overlay" aria-hidden="true"></div>
 <MobileMenu items={site.navItems} activeNav={activeNav} />
 <Navbar items={site.navItems} activeNav={activeNav} />
 
@@ -77,7 +78,7 @@ const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 �
       localStorage.setItem('theme', n);
       var d = $('#themeDropdown'); if (d) d.classList.remove('open');
       var i = $('#themeIcon');
-      if (i) i.className = n === 'light' ? 'fas fa-sun' : n === 'dark' ? 'fas fa-moon' : n === 'gruvbox' ? 'fas fa-fire' : n === 'rose-pine' ? 'fas fa-gem' : 'fas fa-palette';
+      if (i) i.className = n === 'light' ? 'fas fa-sun' : n === 'dark' ? 'fas fa-moon' : 'fas fa-palette';
       $$('.theme-dropdown-menu button').forEach(function(b) {
         b.classList.toggle('active', b.getAttribute('data-theme') === n);
       });
@@ -91,7 +92,7 @@ const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 �
     (function() {
       var t = document.documentElement.getAttribute('data-theme');
       var i = $('#themeIcon');
-      if (i) i.className = t === 'light' ? 'fas fa-sun' : t === 'dark' ? 'fas fa-moon' : t === 'gruvbox' ? 'fas fa-fire' : t === 'rose-pine' ? 'fas fa-gem' : 'fas fa-palette';
+      if (i) i.className = t === 'light' ? 'fas fa-sun' : t === 'dark' ? 'fas fa-moon' : 'fas fa-palette';
       $$('.theme-dropdown-menu button').forEach(function(b) {
         b.classList.toggle('active', b.getAttribute('data-theme') === t);
       });

@@ -13,16 +13,16 @@ const aboutLinks = items.filter(i => ['/team', '/guests', '/contact'].includes(i
 const youtubeChannel = site.youtubeChannel;
 const facebookPage = site.facebookPage;
 const instagramPage = site.instagramPage;
-const schoolSite = site.schoolSite;
-const githubOrg = site.githubOrg;
 const spotifyShow = site.spotifyShow;
+const githubOrg = site.githubOrg;
+const schoolSite = site.schoolSite;
 ---
 
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-brand-name">32 Подкаст</div>
-      <p class="footer-desc">Училищно радио "32 Подкаст" — гласът на 32. СУИЧЕ "Св. Климент Охридски".</p>
+      <p class="footer-desc">Училищно радио — гласът на 32. СУИЧЕ</p>
       <div class="footer-socials">
         <a href={facebookPage} target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href={youtubeChannel} target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -45,13 +45,11 @@ const spotifyShow = site.spotifyShow;
       <div class="footer-col">
         <h4>Училище</h4>
         <a href={schoolSite} target="_blank">32. СУИЧЕ</a>
-        <a href={`${schoolSite}/новини/`} target="_blank">Новини</a>
-        <a href={`${schoolSite}/прием/`} target="_blank">Прием</a>
       </div>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>Copyright 2026 &copy; 32. СУИЧЕ "Св. Климент Охридски"</p>
+    <p>© 2026 32. СУИЧЕ "Св. Климент Охридски"</p>
   </div>
 </footer>

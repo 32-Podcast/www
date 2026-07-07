@@ -8,16 +8,13 @@ export interface Props {
 }
 
 const { items, activeNav = '' } = Astro.props;
-
-const youtubeChannel = site.youtubeChannel;
-const githubRepo = site.githubRepo;
 ---
+
 <header class="navbar">
   <div class="container">
     <div class="navbar-inner">
       <a href="/" class="navbar-brand">
-        <div class="navbar-logo"><img src="/images/logo32.png" alt="32 Подкаст"></div>
-        <span>32 Подкаст</span>
+        32 <span class="accent">ПОДКАСТ</span>
       </a>
       <nav class="navbar-center">
         {items.map(item => (
@@ -25,13 +22,7 @@ const githubRepo = site.githubRepo;
         ))}
       </nav>
       <div class="navbar-actions">
-        <a href={githubRepo} target="_blank" rel="noopener" class="github-link" aria-label="Source on GitHub">
-          <i class="fab fa-github"></i>
-        </a>
         <ThemeDropdown />
-        <a href={youtubeChannel} target="_blank" class="btn btn-primary navbar-cta">
-          <i class="fab fa-youtube"></i> YouTube
-        </a>
         <button class="mobile-hamburger" onclick="toggleMobileMenu()" aria-label="Меню">
           <i class="fas fa-bars"></i>
         </button>
