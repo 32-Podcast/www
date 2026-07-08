@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 import Footer from '../components/Footer.astro';
-import { site } from '../data/site';
+import { site, type NavItem } from '../data/site';
 
 export interface Props {
   title: string;
@@ -19,6 +19,7 @@ const {
 
 const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 Подкаст`;
 ---
+
 <!doctype html>
 <html lang="bg">
 <head>
@@ -52,6 +53,74 @@ const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 �
     function $(s, c) { return (c || document).querySelector(s); }
     function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 
+    // Password protection - client-side only
+    const PASSWORD = 'podcastoftheyear';
+    
+    function checkAuth() {
+      const sessionPassword = sessionStorage.getItem('sitePassword');
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlPassword = urlParams.get('password');
+      return sessionPassword === PASSWORD || urlPassword === PASSWORD;
+    }
+
+    // If not authenticated, show password overlay
+    if (!checkAuth()) {
+      document.body.style.overflow = 'hidden';
+      const overlay = document.createElement('div');
+      overlay.className = 'password-overlay';
+      overlay.innerHTML = `
+        <div class="password-box">
+          <div class="password-header">
+            <h1>32 Подкаст</h1>
+            <p>Сайтът е в процес на преработка. Въведете паролата за достъп.</p>
+          </div>
+          <form id="passwordForm" class="password-form">
+            <input 
+              type="password" 
+              id="passwordInput" 
+              placeholder="Парола..." 
+              required
+              autocomplete="current-password"
+              class="password-input"
+            />
+            <button type="submit" class="password-btn">
+              <i class="fas fa-lock"></i> Влез
+            </button>
+          </form>
+          <div id="passwordError" class="password-error" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i> Невалидна парола
+          </div>
+          <p class="password-hint">Паролата е: <strong>podcastoftheyear</strong></p>
+        </div>
+      `;
+      document.body.prepend(overlay);
+
+      // Handle form submit
+      const form = document.getElementById('passwordForm');
+      const input = document.getElementById('passwordInput');
+      const errorDiv = document.getElementById('passwordError');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const password = input.value;
+        
+        if (password === PASSWORD) {
+          sessionStorage.setItem('sitePassword', PASSWORD);
+          // Clean URL and reload
+          const path = window.location.pathname;
+          window.history.replaceState({}, document.title, path);
+          window.location.reload();
+        } else {
+          errorDiv.style.display = 'flex';
+          input.style.borderColor = '#ef4444';
+          setTimeout(function() {
+            input.style.borderColor = '';
+          }, 300);
+        }
+      });
+      return; // Don't run rest of init if not authenticated
+    }
+
     // Navbar scroll shadow
     var header = $('.navbar');
     if (header) {
@@ -83,7 +152,6 @@ const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 �
         b.classList.toggle('active', b.getAttribute('data-theme') === n);
       });
     };
-
     document.addEventListener('click', function() {
       var d = $('#themeDropdown'); if (d) d.classList.remove('open');
     });
