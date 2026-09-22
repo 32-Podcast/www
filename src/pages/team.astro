@@ -16,14 +16,14 @@ import { team } from '../data/team';
         <div class="section-title">Хората зад микрофона</div>
         <p class="section-desc" style="margin:0 auto;">Четирима ученици, една обща страст — да разказват истории</p>
       </div>
-      <div class="team-grid" style="grid-template-columns:1fr;max-width:800px;margin:0 auto;">
+      <div class="team-grid team-grid-page">
         {team.map(m => <TeamCard member={m} size="large" />)}
       </div>
       <div style="text-align:center;margin-top:3rem;">
-        <p style="color:var(--color-paper);opacity:0.9;margin-bottom:1rem;max-width:450px;margin-left:auto;margin-right:auto;">
+        <p class="team-invite">
           Искаш да станеш част от екипа? Винаги търсим нови таланти!
         </p>
-        <a href="/contact" class="btn" style="background:var(--color-paper);color:var(--color-ink);">
+        <a href="/contact" class="btn team-invite-button">
           <i class="fas fa-handshake"></i> Свържи се с нас
         </a>
       </div>
