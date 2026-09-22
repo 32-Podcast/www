@@ -234,41 +234,52 @@ main { min-height: 60vh; }
 .page-header h1 { max-width: 900px; font: 700 clamp(3.5rem, 10vw, 9rem)/.82 var(--font-display); letter-spacing: -.08em; text-transform: uppercase; }
 .page-header p { max-width: 38rem; margin-top: 1.2rem; color: var(--color-muted); font-size: 1.2rem; }
 .breadcrumbs { margin-bottom: 1.3rem; color: var(--color-accent); font: 700 .65rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.breadcrumbs a { color: var(--color-accent); }
+.breadcrumbs .sep { opacity: .5; }
+.breadcrumbs .current { color: var(--color-ink); }
 .episodes-list { display: grid; gap: 1rem; padding: 3rem 0 6rem; }
 .episode-row { display: grid; grid-template-columns: 180px 1fr auto; gap: 1.5rem; align-items: center; padding: 1rem; border: 1px solid var(--color-border); background: var(--color-card); }
 .episode-row .episode-thumb { height: 115px; }
 .episode-actions { display: flex; gap: .5rem; }
-.episodes-filter { display: flex; flex-wrap: wrap; gap: .5rem; padding: 2rem 0 0; }
+.episodes-filter { display: flex; flex-wrap: wrap; gap: .5rem; padding: 2rem 0 0; align-items: center; }
 .filter-btn { padding: .55rem .8rem; border: 1px solid var(--color-border); background: transparent; cursor: pointer; font: 700 .65rem var(--font-mono); text-transform: uppercase; }
 .filter-btn:hover, .filter-btn.active { border-color: var(--color-accent); color: var(--color-accent); }
 .filter-group { display: flex; align-items: center; gap: .5rem; }
 .filter-label, .filter-count { color: var(--color-muted); font: 700 .64rem var(--font-mono); text-transform: uppercase; }
 .rubrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 3rem 0 6rem; }
-.rubric-card { padding: 2rem; }
-.rubric-icon { color: var(--color-accent); font-size: 2rem; }
+.rubric-card { padding: 2rem; border: 1px solid var(--color-border); background: var(--color-card); }
+.rubric-card h4 { font: 700 1.6rem/1 var(--font-display); text-transform: uppercase; margin-top: .8rem; }
+.rubric-icon { display: inline-grid; width: 52px; height: 52px; place-items: center; color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 12%, var(--color-card)); font-size: 1.4rem; }
 .calendar { padding: 3rem 0 6rem; }
 .calendar-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
 .calendar-month-title { font: 700 1.5rem var(--font-display); text-transform: uppercase; }
 .calendar-nav-btn { width: 36px; height: 36px; border: 1px solid var(--color-border); background: transparent; cursor: pointer; }
 .calendar-nav-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
 .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); border-top: 1px solid var(--color-border); border-left: 1px solid var(--color-border); }
-.calendar-weekdays, .calendar-months-grid { display: contents; }
+.calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); }
+.calendar-months-grid { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
 .weekday, .calendar-cell { min-height: 100px; padding: .6rem; border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
 .weekday { min-height: auto; color: var(--color-muted); font: 700 .62rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
 .cell-day { font: 700 .75rem var(--font-mono); }
-.calendar-cell.current { background: var(--color-card); }
-.calendar-cell .event-badge { display: block; margin-top: .5rem; font-size: .5rem; }
+.calendar-cell.today { background: color-mix(in srgb, var(--color-accent) 10%, var(--color-card)); }
+.calendar-cell.has-event { background: color-mix(in srgb, var(--color-card) 85%, var(--color-subtle)); }
+.calendar-cell .event-badge { display: block; margin-top: .5rem; font-size: .5rem; background: var(--color-accent); color: #fff; padding: .22rem .35rem; }
+.calendar-cell .event-badge.is-special { background: var(--color-ink); }
+.month-chip { padding: .6rem .8rem; border: 1px solid var(--color-border); background: transparent; cursor: pointer; font: 700 .65rem var(--font-mono); text-transform: uppercase; }
+.month-chip.active, .month-chip:hover { border-color: var(--color-accent); color: var(--color-accent); }
 .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 4rem; padding: 3rem 0 6rem; }
 .contact-info { display: grid; gap: 1rem; align-content: start; }
+.contact-info h3, .contact-form h3 { font: 700 clamp(2rem, 4vw, 3.2rem)/.95 var(--font-display); text-transform: uppercase; }
 .contact-item { display: grid; grid-template-columns: 34px 1fr; gap: .8rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border); }
 .contact-item .icon { color: var(--color-accent); }
 .contact-item h4 { font: 700 .72rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
-.contact-item p { color: var(--color-muted); }
+.contact-item a, .contact-item p { color: var(--color-muted); }
+.contact-item a:hover { color: var(--color-accent); }
 .contact-form { display: grid; gap: 1rem; padding: 2rem; border: 1px solid var(--color-border); background: var(--color-card); }
 .form-group { display: grid; gap: .35rem; }
 .form-group label { font: 700 .68rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
-.form-group input, .form-group textarea { width: 100%; padding: .8rem; border: 1px solid var(--color-border); outline: 0; background: var(--color-paper); color: var(--color-ink); }
-.form-group input:focus, .form-group textarea:focus { border-color: var(--color-accent); }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: .8rem; border: 1px solid var(--color-border); outline: 0; background: var(--color-paper); color: var(--color-ink); }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--color-accent); }
 .form-result { padding: .8rem; font-weight: 700; }
 .form-result.success { background: #2a9d7040; color: #20704f; }
 .form-result.error { background: #e64b3530; color: var(--color-accent); }
