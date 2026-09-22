@@ -275,6 +275,9 @@ main { min-height: 60vh; }
 .calendar-month-title { font: 700 1.5rem var(--font-display); text-transform: uppercase; }
 .calendar-nav-btn { width: 36px; height: 36px; border: 1px solid var(--color-border); background: transparent; cursor: pointer; }
 .calendar-nav-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.calendar-nav-btn:disabled, .calendar-today-btn:disabled { cursor: default; opacity: .35; }
+.calendar-today-btn { padding: .55rem .8rem; border: 1px solid var(--color-border); background: transparent; color: var(--color-ink); cursor: pointer; font: 700 .65rem var(--font-mono); text-transform: uppercase; }
+.calendar-today-btn:hover:not(:disabled) { border-color: var(--color-accent); color: var(--color-accent); }
 .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); border-top: 1px solid var(--color-border); border-left: 1px solid var(--color-border); }
 .calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); }
 .calendar-months-grid { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
