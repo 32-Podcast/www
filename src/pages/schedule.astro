@@ -2,12 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { youtubeChannel } from '../data/site';
-import { episodes, episodeLabel } from '../data/episodes';
-
-const now = new Date();
-const currentYear = now.getFullYear();
-const currentMonth = now.getMonth();
-const today = now.getDate();
+import { episodes } from '../data/episodes';
 
 const monthNames = ['Януари', 'Февруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'];
 const weekdayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'];
@@ -29,24 +24,23 @@ for (const ep of episodeDates) {
 const sortedYMs = [...allMonthsMap.keys()].sort((a, b) => b - a);
 
 const calendarData = JSON.stringify({
-  allMonths: sortedYMs,
   monthNames,
   weekdayNames,
-  episodes: episodeDates,
-  currentYear,
-  currentMonth,
-  today
+  episodes: episodeDates
 });
 
 const calendarScript = `(function() {
   var data = ${calendarData};
-  var allMonths = data.allMonths;
   var monthNames = data.monthNames;
   var weekdayNames = data.weekdayNames;
   var episodes = data.episodes;
-  var currentYear = data.currentYear;
-  var currentMonth = data.currentMonth;
-  var todayDate = data.today;
+  var today = new Date();
+  var currentYear = today.getFullYear();
+  var currentMonth = today.getMonth();
+  var todayDate = today.getDate();
+  var allMonths = episodes.map(function(ep) { return ep.year * 100 + ep.month; });
+  allMonths.push(currentYear * 100 + currentMonth);
+  allMonths = allMonths.filter(function(ym, index) { return allMonths.indexOf(ym) === index; }).sort(function(a, b) { return b - a; });
 
   function buildCells(year, month) {
     var firstDay = new Date(year, month, 1).getDay();
@@ -93,13 +87,18 @@ const calendarScript = `(function() {
     var idx = allMonths.indexOf(year * 100 + month);
     document.getElementById('prevMonth').disabled = idx >= allMonths.length - 1;
     document.getElementById('nextMonth').disabled = idx <= 0;
+    document.getElementById('todayMonth').disabled = year === currentYear && month === currentMonth;
     var chips = document.querySelectorAll('.month-chip');
     chips.forEach(function(chip) {
       chip.classList.toggle('active', parseInt(chip.getAttribute('data-ym')) === year * 100 + month);
     });
   }
 
-  var currentYM = allMonths[0];
+  var currentYM = currentYear * 100 + currentMonth;
+  document.getElementById('todayMonth').addEventListener('click', function() {
+    currentYM = currentYear * 100 + currentMonth;
+    renderCalendar(currentYear, currentMonth);
+  });
   document.getElementById('prevMonth').addEventListener('click', function() {
     var idx = allMonths.indexOf(currentYM);
     if (idx < allMonths.length - 1) {
@@ -121,6 +120,29 @@ const calendarScript = `(function() {
     });
   });
   renderCalendar(Math.floor(currentYM / 100), currentYM % 100);
+
+  function refreshToday() {
+    var nextToday = new Date();
+    var nextYear = nextToday.getFullYear();
+    var nextMonth = nextToday.getMonth();
+    var nextDate = nextToday.getDate();
+    if (nextYear === currentYear && nextMonth === currentMonth && nextDate === todayDate) return;
+    currentYear = nextYear;
+    currentMonth = nextMonth;
+    todayDate = nextDate;
+    var nextYM = currentYear * 100 + currentMonth;
+    if (allMonths.indexOf(nextYM) === -1) {
+      allMonths.push(nextYM);
+      allMonths.sort(function(a, b) { return b - a; });
+    }
+    currentYM = nextYM;
+    renderCalendar(currentYear, currentMonth);
+  }
+
+  window.setInterval(refreshToday, 60000);
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) refreshToday();
+  });
 })();`;
 ---
 <BaseLayout title="Програма" description="Месечна програма на 32 Подкаст — следи за новите епизоди през целия месец." activeNav="/schedule">
@@ -136,6 +158,7 @@ const calendarScript = `(function() {
             <i class="fas fa-chevron-left"></i>
           </button>
           <div class="calendar-month-title" id="monthTitle"></div>
+          <button class="calendar-today-btn" id="todayMonth">Днес</button>
           <button class="calendar-nav-btn" id="nextMonth" aria-label="Следващ месец">
             <i class="fas fa-chevron-right"></i>
           </button>
@@ -170,5 +193,5 @@ const calendarScript = `(function() {
     </section>
   </div>
 
-  <script set:html={calendarScript}></script>
+  <script is:inline set:html={calendarScript}></script>
 </BaseLayout>
