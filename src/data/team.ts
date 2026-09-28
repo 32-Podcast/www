@@ -24,7 +24,7 @@ export const team: TeamMember[] = [
     class: '10. г клас',
     bio: 'Оператор и звукорежисьор. Отговаря за брандинга, графичния дизайн и социалните медии, както и за разработката на сайта.',
     instagram: 'https://www.instagram.com/sladkaroww/',
-    website: 'https://sladkaroww.neocities.org',
+    website: 'https://sladkaroww.dev/',
   },
   {
     initials: 'НТ',
