@@ -14,7 +14,8 @@ const { items, activeNav = '' } = Astro.props;
   <div class="container">
     <div class="navbar-inner">
       <a href="/" class="navbar-brand">
-        32 <span class="accent">ПОДКАСТ</span>
+        <img src="/images/logo32.png" alt="" class="navbar-logo">
+        <span class="accent">ПОДКАСТ</span>
       </a>
       <nav class="navbar-center">
         {items.map(item => (
