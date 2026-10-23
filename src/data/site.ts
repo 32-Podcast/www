@@ -12,7 +12,6 @@ export const site = {
     { href: '/contact', label: 'Контакти' },
   ],
   youtubeChannel: 'https://www.youtube.com/@schoolpodcast32',
-  facebookPage: 'https://www.facebook.com/schoolpodcast32/',
   instagramPage: 'https://www.instagram.com/32.podcast/',
   schoolSite: 'https://school32.com/',
   githubRepo: 'https://github.com/32-Podcast/www',
@@ -29,4 +28,4 @@ export type NavItem = {
   exact?: boolean;
 };
 
-export const { title, description, url, navItems, youtubeChannel, facebookPage, instagramPage, schoolSite, githubRepo, githubOrg, spotifyShow, schoolAddress, schoolAddressMapsUrl, contactEmail } = site;
+export const { title, description, url, navItems, youtubeChannel, instagramPage, schoolSite, githubRepo, githubOrg, spotifyShow, schoolAddress, schoolAddressMapsUrl, contactEmail } = site;

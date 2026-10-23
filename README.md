@@ -9,7 +9,7 @@
 [![Tailwind](https://img.shields.io/badge/Tailwind-v4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com)
 
-🌐 [www-6wp.pages.dev](https://www-6wp.pages.dev/) · [📺 YouTube](https://www.youtube.com/@schoolpodcast32) · [📸 Instagram](https://www.instagram.com/32.podcast/) · [📘 Facebook](https://www.facebook.com/school32.bg/)
+🌐 [www-6wp.pages.dev](https://www-6wp.pages.dev/) · [📺 YouTube](https://www.youtube.com/@schoolpodcast32) · [📸 Instagram](https://www.instagram.com/32.podcast/)
 
 ---
 

@@ -11,7 +11,6 @@ const podcastLinks = items.filter(i => ['/', '/episodes', '/rubrics', '/schedule
 const aboutLinks = items.filter(i => ['/team', '/guests', '/contact'].includes(i.href));
 
 const youtubeChannel = site.youtubeChannel;
-const facebookPage = site.facebookPage;
 const instagramPage = site.instagramPage;
 const spotifyShow = site.spotifyShow;
 const githubOrg = site.githubOrg;
@@ -24,7 +23,6 @@ const schoolSite = site.schoolSite;
       <div class="footer-brand-name">32 Подкаст</div>
       <p class="footer-desc">Ученическият подкаст на 32. СУИЧЕ — идеи, разговори и истории от училищния живот.</p>
       <div class="footer-socials">
-        <a href={facebookPage} target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href={youtubeChannel} target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         <a href={instagramPage} target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href={spotifyShow} target="_blank" rel="noopener" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
