@@ -1,0 +1,144 @@
+---
+import '../styles/global.css';
+
+const schoolUrl = 'https://school32.com';
+const podcastUrl = 'https://www.youtube.com/@schoolpodcast32';
+const logoUrl = 'https://school32.com/wp-content/uploads/2023/02/logonadpis.png';
+const radioLogoUrl = 'https://school32.com/wp-content/uploads/2025/12/Logo-radio-1024x1024.png';
+const studioImageUrl = 'https://school32.com/wp-content/uploads/2024/08/studio-microphone-rec-4065107-1024x682.jpg';
+
+const schoolMenu = [
+  { label: 'Начало', href: schoolUrl },
+  { label: 'За училището', href: `${schoolUrl}/za-uchilishteto/`, dropdown: ['История', 'Защо 32 СУИЧЕ', 'Виртуална разходка', 'Новини', 'Галерия'] },
+  { label: 'Учебен процес', href: `${schoolUrl}/ucheben-proces/`, dropdown: ['Графици', 'Седмично разписание', 'Ваканции', 'Класни работи'] },
+  { label: 'Портфолио', href: `${schoolUrl}/wp-content/uploads/2023/04/32.Св.-Климент-Охридски_портфолио_new.pdf` },
+  { label: 'Документи', href: `${schoolUrl}/dokumenti/` },
+  { label: 'Контакти', href: `${schoolUrl}/kontakti/` },
+];
+
+const footerMenu = [
+  { label: 'Начало', href: schoolUrl },
+  { label: 'Учебен процес', href: `${schoolUrl}/ucheben-proces/` },
+  { label: 'Портфолио', href: `${schoolUrl}/wp-content/uploads/2023/04/32.Св.-Климент-Охридски_портфолио_new.pdf` },
+  { label: 'Документи', href: `${schoolUrl}/dokumenti/` },
+  { label: 'Прием', href: `${schoolUrl}/priem/` },
+  { label: 'Проекти', href: `${schoolUrl}/proekti/` },
+  { label: 'Контакти', href: `${schoolUrl}/kontakti/` },
+];
+---
+
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Подкаст училищно радио „Междучасие“ — 32. СУИЧЕ</title>
+    <meta name="description" content="Ученическият подкаст на 32. СУИЧЕ — разговори, истории и идеи от училищния живот.">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </head>
+  <body class="school-radio-page">
+    <header class="school-header">
+      <div class="school-header-top">
+        <span>32. СУИЧЕ „Св. Климент Охридски“</span>
+        <span>Образование / Идеи / Общност</span>
+      </div>
+      <div class="school-header-main">
+        <a class="school-logo" href={schoolUrl} aria-label="school32 начало">
+          <img src={logoUrl} alt="school32">
+        </a>
+        <nav class="school-nav" aria-label="Основна навигация">
+          {schoolMenu.map(item => (
+            <div class="school-nav-item">
+              <a href={item.href} target="_blank" rel="noopener">{item.label}{item.dropdown && <i class="fas fa-chevron-down" aria-hidden="true"></i>}</a>
+              {item.dropdown && <div class="school-dropdown">{item.dropdown.map(label => <a href={schoolUrl} target="_blank" rel="noopener">{label}</a>)}</div>}
+            </div>
+          ))}
+        </nav>
+        <button class="school-menu-toggle" type="button" aria-label="Отвори меню"><i class="fas fa-bars"></i></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="radio-hero">
+        <div class="radio-hero-top">
+          <span class="radio-kicker">Онлайн радио / 32. СУИЧЕ</span>
+          <span class="radio-page-number">01 — 03</span>
+        </div>
+        <div class="radio-hero-grid">
+          <div class="radio-hero-copy">
+            <p class="radio-overline">Твоят глас в ефира</p>
+            <h1>Между<br><em>часовете.</em></h1>
+            <p class="radio-lede">Подкастът на 32. училище — място за новини, любопитство, смях и разговори, които продължават и след звънеца.</p>
+            <a href={podcastUrl} target="_blank" rel="noopener" class="radio-button"><span>Гледай подкаста</span><i class="fas fa-arrow-up-right-from-square"></i></a>
+          </div>
+          <div class="radio-hero-art">
+            <div class="radio-art-label"><span>ON AIR</span><span>32 / FM</span></div>
+            <img src={radioLogoUrl} alt="Лого на училищно радио Междучасие">
+            <span class="radio-art-note">Слушай<br><strong>Гледай<br>Усмихвай се</strong></span>
+          </div>
+        </div>
+        <div class="radio-marquee"><span>ИДЕИ</span><b>✳</b><span>ГЛАСОВЕ</span><b>✳</b><span>УЧИЛИЩЕН ЖИВОТ</span><b>✳</b><span>РАЗГОВОРИ</span><b>✳</b></div>
+      </section>
+
+      <section class="radio-intro">
+        <div class="radio-container radio-intro-grid">
+          <p class="radio-section-label">/ Какво е това?</p>
+          <div>
+            <h2>Дигитално преживяване, което започва от училище.</h2>
+            <p>Новини, любопитни факти, музика и забавни рубрики — всичко, което прави училищния живот цветен и вдъхновяващ.</p>
+          </div>
+          <span class="radio-intro-mark">32<br><small>СУИЧЕ</small></span>
+        </div>
+      </section>
+
+      <section class="radio-story">
+        <div class="radio-container radio-story-grid">
+          <div class="radio-story-image">
+            <img src={studioImageUrl} alt="Микрофон в студио" loading="lazy">
+            <span>02 / СТУДИО</span>
+          </div>
+          <div class="radio-story-copy">
+            <p class="radio-section-label">/ Какво ще чуеш</p>
+            <h2>Истории от хората, които правят 32.</h2>
+            <p>Очаквай интервюта с ученици, учители и личности от света на изкуството, спорта, науката и технологиите. Полезни съвети, мотивиращи истории и много настроение — само на нашите подкасти.</p>
+            <a href={podcastUrl} target="_blank" rel="noopener" class="radio-text-link">Към YouTube канала <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="radio-team">
+        <div class="radio-container">
+          <div class="radio-team-head">
+            <div><p class="radio-section-label">/ Екипът</p><h2>Хората<br><em>зад ефира.</em></h2></div>
+            <p>Ученици, които планират, записват, монтират и превръщат една идея в истинско дигитално преживяване.</p>
+          </div>
+          <div class="radio-team-list">
+            <div><span>01</span><strong>Неда Ташева</strong><small>Редактор продукция / 9. г клас</small></div>
+            <div><span>02</span><strong>Кирил Леваков</strong><small>Редактор рубрика / 10. г клас</small></div>
+            <div><span>03</span><strong>Божидар Генчев</strong><small>Технически оператор и монтаж / 10. г клас</small></div>
+            <div><span>04</span><strong>Петър Сладкаров</strong><small>Звукорежисьор / 10. г клас</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="radio-final">
+        <p class="radio-section-label">/ Твоето време за вдъхновение</p>
+        <h2>Слушай.<br><span>Гледай.</span><br>Усмихвай се.</h2>
+        <a href={podcastUrl} target="_blank" rel="noopener" class="radio-button radio-button-light"><span>Отвори канала</span><i class="fas fa-arrow-up-right-from-square"></i></a>
+      </section>
+    </main>
+
+    <footer class="school-footer">
+      <div class="school-footer-main">
+        <a class="school-logo school-footer-logo" href={schoolUrl}><img src={logoUrl} alt="school32"></a>
+        <nav aria-label="Footer menu">
+          {footerMenu.map(item => <a href={item.href} target="_blank" rel="noopener">{item.label}</a>)}
+        </nav>
+      </div>
+      <div class="school-footer-bottom">
+        <span>Copyright 2018 — 2026 © Всички права запазени</span>
+        <a href="https://dekaeksi.com/" target="_blank" rel="noopener">Изработено от Dekaeksi.com</a>
+      </div>
+    </footer>
+  </body>
+</html>
