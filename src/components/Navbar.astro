@@ -23,8 +23,16 @@ const { items, activeNav = '' } = Astro.props;
         ))}
       </nav>
       <div class="navbar-actions">
+        <button class="navbar-menu-toggle" type="button" aria-label="Отвори меню" aria-expanded="false">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
         <ThemeDropdown />
       </div>
     </div>
+    <nav class="navbar-mobile-menu" aria-label="Мобилна навигация">
+      {items.map(item => (
+        <a href={item.href} class={item.href === activeNav ? 'active' : ''}>{item.label}</a>
+      ))}
+    </nav>
   </div>
 </header>

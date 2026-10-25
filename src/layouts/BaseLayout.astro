@@ -61,6 +61,29 @@ const fullTitle = title.includes('32 Подкаст') ? title : `${title} | 32 �
       });
     }
 
+    var menuToggle = $('.navbar-menu-toggle');
+    var mobileMenu = $('.navbar-mobile-menu');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = mobileMenu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.querySelector('i').className = isOpen ? 'fas fa-xmark' : 'fas fa-bars';
+      });
+      $$('.navbar-mobile-menu a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.querySelector('i').className = 'fas fa-bars';
+        });
+      });
+      document.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.querySelector('i').className = 'fas fa-bars';
+      });
+    }
+
     // Theme dropdown
     window.toggleDropdown = function(e) {
       e.stopPropagation();
